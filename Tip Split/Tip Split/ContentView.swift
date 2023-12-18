@@ -12,7 +12,7 @@ struct ContentView: View {
     // FocusState is used to hide the keyboard (in this case)
     @FocusState private var amountIsFocused: Bool
     
-    @State private var checkAmount = 0.0
+    @State private var checkAmount = "$0.00"
     @State private var numberOfPeople = 0 // 0th index in the foreach loop, so defaults to 2 people
     @State private var tipPercentage = 20
     let tipPercentages = [5, 10, 15, 20, 25, 0]
@@ -21,12 +21,14 @@ struct ContentView: View {
     var totalPerPerson: Double {
         let peopleCountDbl = Double(numberOfPeople) + 2
         let tipPercentageDbl = Double(tipPercentage) / 100 + 1
-        return (checkAmount * tipPercentageDbl / peopleCountDbl)
+        let checkAmountDbl = Double(checkAmount.replacingOccurrences(of: "$", with: "")) ?? 0.00
+        return (checkAmountDbl * tipPercentageDbl / peopleCountDbl)
     }
     
     var totalPlusTip: Double {
         let tipPercentageDbl = Double(tipPercentage) / 100 + 1
-        return (checkAmount * tipPercentageDbl)
+        let checkAmountDbl = Double(checkAmount.replacingOccurrences(of: "$", with: "")) ?? 0.00
+        return (checkAmountDbl * tipPercentageDbl)
     }
     
     var body: some View {
@@ -37,10 +39,13 @@ struct ContentView: View {
                         Text("Amount: ")
                         // Use the user's local currency
                         // Default to USD just in case
-                        TextField("Amount", value: $checkAmount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
+                        TextField("Amount", text: $checkAmount)
                             .keyboardType(.decimalPad)
                             .focused($amountIsFocused)
                             .multilineTextAlignment(.trailing)
+                            .onTapGesture {
+                                checkAmount = "$"
+                            }
                     }
                         
                         Picker("Number of people", selection: $numberOfPeople) {
