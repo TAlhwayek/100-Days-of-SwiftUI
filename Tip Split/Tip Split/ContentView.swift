@@ -33,17 +33,22 @@ struct ContentView: View {
         NavigationStack {
             Form {
                 Section {
-                    // Use the user's local currency
-                    // Default to USD just in case
-                    TextField("Amount", value: $checkAmount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
-                        .keyboardType(.decimalPad)
-                        .focused($amountIsFocused)
-                    
-                    Picker("Number of people", selection: $numberOfPeople) {
-                        ForEach(2..<21) {
-                            Text("\($0) people")
-                        }
+                    HStack {
+                        Text("Amount: ")
+                        // Use the user's local currency
+                        // Default to USD just in case
+                        TextField("Amount", value: $checkAmount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
+                            .keyboardType(.decimalPad)
+                            .focused($amountIsFocused)
+                            .multilineTextAlignment(.trailing)
                     }
+                        
+                        Picker("Number of people", selection: $numberOfPeople) {
+                            ForEach(2..<21) {
+                                Text("\($0) people")
+                            }
+                        }
+                
                 }
                 // I didn't like this
                 // .pickerStyle(.navigationLink)
