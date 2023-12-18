@@ -14,8 +14,8 @@ struct ContentView: View {
     
     @State private var checkAmount = "$0.00"
     @State private var numberOfPeople = 0 // 0th index in the foreach loop, so defaults to 2 people
-    @State private var tipPercentage = 20
-    let tipPercentages = [5, 10, 15, 20, 25, 0]
+    @State private var tipPercentage = 18
+    let tipPercentages = [5, 10, 15, 18, 20, 25, 0]
     
     // Calculate the final value
     var totalPerPerson: Double {
@@ -37,8 +37,8 @@ struct ContentView: View {
                 Section {
                     HStack {
                         Text("Amount: ")
-                        // Use the user's local currency
-                        // Default to USD just in case
+                        // I used a string to do my own thing
+                        // That rhymes!
                         TextField("Amount", text: $checkAmount)
                             .keyboardType(.decimalPad)
                             .focused($amountIsFocused)
@@ -90,6 +90,7 @@ struct ContentView: View {
                     Button("Done") {
                         amountIsFocused = false
                         
+                        // Format the string to two decimals
                         checkAmount = checkAmount.replacingOccurrences(of: "$", with: "")
                         if let checkDbl = Double(checkAmount) {
                             checkAmount = String(format: "%.2f", checkDbl)
