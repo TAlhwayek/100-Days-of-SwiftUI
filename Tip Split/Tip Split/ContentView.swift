@@ -8,68 +8,51 @@
 import SwiftUI
 
 struct ContentView: View {
-    // State is needed to allow variables to be mutated
-    // Private indicates that this variables will be made and used only in this view
-    @State private var tapCount = 0
     
-    @State private var name = ""
+    @State private var checkAmount = 0.0
+    @State private var numberOfPeople = 0 // 0th index in the foreach loop, so defaults to 2 people
+    @State private var tipPercentage = 20
+    let tipPercentages = [5, 10, 15, 20, 25, 0]
     
-    let students = ["Johnny", "Timmy", "Freddy"]
-    @State private var selectedStudent = "Johnny"
+    var totalPerPerson: Double {
+        let peopleCountDbl = Double(numberOfPeople) + 2
+        let tipPercentageDbl = Double(tipPercentage) / 100 + 1
+        return (checkAmount * tipPercentageDbl / peopleCountDbl)
+    }
     
     var body: some View {
-        //        NavigationStack {
-        //            Form {
-        //                Section {
-        //                    Text("Hello world")
-        //                }
-        //
-        //                Section {
-        //                    Text("Hello John")
-        //                }
-        //            }
-        //            .navigationTitle("SwiftUI")
-        //            .navigationBarTitleDisplayMode(.inline)
-        //        }
-        
-
-        
-//        Form {
-//            Button("Tap Count: \(tapCount)") {
-//                tapCount += 1
-//            }
-//            
-//            // $ makes it a two-way binding
-//            // Tells SwiftUI to read and write (to) the value
-//            // I.e., "The value is read but also written back"
-//            TextField("Enter your name", text: $name)
-//            Text("Hello \(name)")
-//            
-//            Section {
-//                ForEach(0..<20) { number in
-//                    Text("Row: \(number)")
-//                }
-//                
-//                // Could also write
-//                // ForEach(0..<20 {
-//                // Text("Row: \($0)")
-//                // }
-//            }
-//        }
-        
         NavigationStack {
             Form {
-                Picker("Select your student", selection: $selectedStudent) {
-                    // Self tells SwiftUI that each string is its own unique identifier
-                    ForEach(students, id: \.self) {
-                        // $0 selects item
-                        Text($0)
+                Section {
+                    // Use the user's local currency
+                    // Default to USD just in case
+                    TextField("Amount", value: $checkAmount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
+                        .keyboardType(.decimalPad)
+                    
+                    Picker("Number of people", selection: $numberOfPeople) {
+                        ForEach(2..<21) {
+                            Text("\($0) people")
+                        }
                     }
                 }
+                // I didn't like this
+                // .pickerStyle(.navigationLink)
+                
+                Section("How much do you want to tip?") {
+                    Picker("Tip Percentage", selection: $tipPercentage) {
+                        ForEach(tipPercentages, id: \.self) {
+                            Text($0, format: .percent)
+                        }
+                    }
+                    .pickerStyle(.segmented)
+                }
+                
+                Section {
+                    Text(totalPerPerson, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
+                }
             }
-            .navigationTitle("Pick a student")
+            .navigationTitle("Tip Split")
         }
-        
     }
 }
 
