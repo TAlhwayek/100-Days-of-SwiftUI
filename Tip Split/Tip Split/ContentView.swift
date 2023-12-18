@@ -46,6 +46,9 @@ struct ContentView: View {
                             .onTapGesture {
                                 checkAmount = "$"
                             }
+                            .onSubmit() {
+                                
+                            }
                     }
                         
                         Picker("Number of people", selection: $numberOfPeople) {
@@ -87,6 +90,13 @@ struct ContentView: View {
                 if amountIsFocused {
                     Button("Done") {
                         amountIsFocused = false
+                        
+                        checkAmount = checkAmount.replacingOccurrences(of: "$", with: "")
+                        if let checkDbl = Double(checkAmount) {
+                            checkAmount = String(format: "%.2f", checkDbl)
+                            checkAmount = "$" + checkAmount
+                        }
+                        
                     }
                 }
             }
