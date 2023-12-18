@@ -56,7 +56,6 @@ struct ContentView: View {
                                 Text("\($0) people")
                             }
                         }
-                
                 }
                 // I didn't like this
                 // .pickerStyle(.navigationLink)
@@ -96,7 +95,6 @@ struct ContentView: View {
                             checkAmount = String(format: "%.2f", checkDbl)
                             checkAmount = "$" + checkAmount
                         }
-                        
                     }
                 }
             }
