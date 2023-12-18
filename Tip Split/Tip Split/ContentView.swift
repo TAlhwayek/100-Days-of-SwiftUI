@@ -50,12 +50,12 @@ struct ContentView: View {
                                 
                             }
                     }
-                        
-                        Picker("Number of people", selection: $numberOfPeople) {
-                            ForEach(2..<21) {
-                                Text("\($0) people")
-                            }
+                    
+                    Picker("Number of people", selection: $numberOfPeople) {
+                        ForEach(2..<21) {
+                            Text("\($0) people")
                         }
+                    }
                 }
                 // I didn't like this
                 // .pickerStyle(.navigationLink)
