@@ -46,9 +46,6 @@ struct ContentView: View {
                             .onTapGesture {
                                 checkAmount = "$"
                             }
-                            .onSubmit() {
-                                
-                            }
                     }
                     
                     Picker("Number of people", selection: $numberOfPeople) {
