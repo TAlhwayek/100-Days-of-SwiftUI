@@ -24,7 +24,7 @@ struct ContentView: View {
     
     func conversionResult(toConvert: String) -> String {
         switch selectedUnit {
-            // If converting from C
+        // If converting from C
         case "Celsius":
             switch toConvert {
             case "Fahrenheit":
@@ -36,26 +36,27 @@ struct ContentView: View {
                 return String(format: "%.2f", enteredValue * 1.8 + 32)
             }
             
-            // If Converting from F
+        // If Converting from F
         case "Fahrenheit":
             switch toConvert {
             case "Celsius":
                 return String(format: "%.2f", (enteredValue - 32) * (5/9))
             case "Kelvin":
                 return String(format: "%.2f", (enteredValue - 32) * (5/9) + 273.15)
-                // Default to F to C
             default:
+                // Default to F to C
                 return String(format: "%.2f", (enteredValue - 32) * (5/9))
             }
             
+        // If converting from K
         case "Kelvin":
             switch toConvert {
             case "Celsius":
                 return String(format: "%.2f", enteredValue - 273.15)
             case "Fahrenheit":
                 return String(format: "%.2f", ((enteredValue - 273.15) * 1.8 + 32))
-                // Default K to C
             default:
+                // Default K to C
                 return String(format: "%.2f", enteredValue - 273.15)
             }
         default:
@@ -94,8 +95,6 @@ struct ContentView: View {
                         }
                     }
                     .listRowBackground(Color.white.opacity(0.4))
-                    
-                    
                     
                     Section("Convert to") {
                         // Dynamically modify the picker
