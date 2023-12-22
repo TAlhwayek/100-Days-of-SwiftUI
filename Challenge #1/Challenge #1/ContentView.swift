@@ -11,14 +11,14 @@ struct ContentView: View {
     @State private var enteredValue: Double = 0.0
     @State private var selectedUnit = "Celsius"
     @State private var toConvertUnit = "Fahrenheit"
-
+    
     let units = ["Celsius", "Fahrenheit", "Kelvin"]
     
     func conversionResult(toConvert: String) -> String {
         
         switch selectedUnit {
             
-        // If converting from C
+            // If converting from C
         case "Celsius":
             switch toConvert {
             case "Fahrenheit":
@@ -30,7 +30,7 @@ struct ContentView: View {
                 return String(format: "%.2f", enteredValue * 1.8 + 32)
             }
             
-        // If Converting from F
+            // If Converting from F
         case "Fahrenheit":
             switch toConvert {
             case "Celsius":
@@ -106,8 +106,7 @@ struct ContentView: View {
                     }
                 }
             }
-            .navigationTitle("Unit Converter")
-            .navigationBarTitleDisplayMode(.inline)
+            .navigationTitle("Temp Converter")
         }
     }
 }
