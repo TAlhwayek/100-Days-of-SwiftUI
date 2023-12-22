@@ -8,6 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    // Modify segment picker colors
+    init() {
+        UISegmentedControl.appearance().selectedSegmentTintColor = .init(red: 0.2, green: 0.7, blue: 0.9, alpha: 1)
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.black], for: .normal)
+    }
+    
     @State private var enteredValue: Double = 0.0
     @State private var selectedUnit = "Celsius"
     @State private var toConvertUnit = "Fahrenheit"
@@ -15,9 +23,7 @@ struct ContentView: View {
     let units = ["Celsius", "Fahrenheit", "Kelvin"]
     
     func conversionResult(toConvert: String) -> String {
-        
         switch selectedUnit {
-            
             // If converting from C
         case "Celsius":
             switch toConvert {
@@ -59,52 +65,63 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack {
-            Form {
-                Section("Convert from") {
-                    HStack {
-                        Text("Enter value: ")
-                        TextField("0.00", value: $enteredValue, format: .number)
-                            .multilineTextAlignment(.trailing)
-                            .keyboardType(.decimalPad)
-                    }
-                    HStack {
-                        Text("Unit: ")
-                        Picker("Select unit", selection: $selectedUnit){
-                            ForEach(units, id: \.self) {
-                                Text($0)
+            ZStack {
+                LinearGradient(colors: [Color.blue, Color.mint],
+                               startPoint: .top, endPoint: .bottom)
+                .opacity(0.5)
+                .ignoresSafeArea()
+                Form {
+                    Section("Convert from") {
+                        HStack {
+                            Text("Enter value: ")
+                            TextField("0.00", value: $enteredValue, format: .number)
+                                .multilineTextAlignment(.trailing)
+                                .keyboardType(.decimalPad)
+                        }
+                        HStack {
+                            Text("Unit: ")
+                            Picker("Select unit", selection: $selectedUnit){
+                                ForEach(units, id: \.self) {
+                                    Text($0)
+                                }
+                            }
+                            .pickerStyle(.segmented)
+                            .onChange(of: selectedUnit) {
+                                // This works with the bottom 'let' to dynamically update based on the selectedUnit
+                                let convertUnits = units.filter { $0 != selectedUnit }
+                                toConvertUnit = convertUnits[0]
                             }
                         }
-                        .pickerStyle(.segmented)
-                        .onChange(of: selectedUnit) {
-                            // This works with the bottom 'let' to dynamically update based on the selectedUnit
-                            let convertUnits = units.filter { $0 != selectedUnit }
-                            toConvertUnit = convertUnits[0]
-                        }
                     }
-                }
-                
-                Section("Convert to") {
-                    // Dynamically modify the picker
-                    HStack {
-                        Text("Unit: ")
-                        Picker("Select unit", selection: $toConvertUnit) {
-                            // This allows the picker to dynamically update based on the selectedUnit
-                            let convertUnits = units.filter { $0 != selectedUnit }
-                            ForEach(convertUnits, id: \.self) {
-                                Text($0)
-                            }
-                        }
-                        .pickerStyle(.segmented)
-                    }
+                    .listRowBackground(Color.white.opacity(0.4))
                     
-                    HStack {
-                        Text("Result:")
-                        Spacer()
-                        Text(conversionResult(toConvert:toConvertUnit))
+                    
+                    
+                    Section("Convert to") {
+                        // Dynamically modify the picker
+                        HStack {
+                            Text("Unit: ")
+                            Picker("Select unit", selection: $toConvertUnit) {
+                                // This allows the picker to dynamically update based on the selectedUnit
+                                let convertUnits = units.filter { $0 != selectedUnit }
+                                ForEach(convertUnits, id: \.self) {
+                                    Text($0)
+                                }
+                            }
+                            .pickerStyle(.segmented)
+                        }
+                        
+                        HStack {
+                            Text("Result:")
+                            Spacer()
+                            Text(conversionResult(toConvert:toConvertUnit))
+                        }
                     }
+                    .listRowBackground(Color.white.opacity(0.4))
                 }
+                .scrollContentBackground(.hidden)
+                .navigationTitle("Temp Converter")
             }
-            .navigationTitle("Temp Converter")
         }
     }
 }
