@@ -59,50 +59,48 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack {
-            VStack {
-                Form {
-                    Section("Convert from") {
-                        HStack {
-                            Text("Enter value: ")
-                            TextField("0.00", value: $enteredValue, format: .number)
-                                .multilineTextAlignment(.trailing)
-                                .keyboardType(.decimalPad)
+            Form {
+                Section("Convert from") {
+                    HStack {
+                        Text("Enter value: ")
+                        TextField("0.00", value: $enteredValue, format: .number)
+                            .multilineTextAlignment(.trailing)
+                            .keyboardType(.decimalPad)
+                    }
+                    HStack {
+                        Text("Unit: ")
+                        Picker("Select unit", selection: $selectedUnit){
+                            ForEach(units, id: \.self) {
+                                Text($0)
+                            }
                         }
-                        HStack {
-                            Text("Unit: ")
-                            Picker("Select unit", selection: $selectedUnit){
-                                ForEach(units, id: \.self) {
-                                    Text($0)
-                                }
-                            }
-                            .pickerStyle(.segmented)
-                            .onChange(of: selectedUnit) {
-                                // This works with the bottom 'let' to dynamically update based on the selectedUnit
-                                let convertUnits = units.filter { $0 != selectedUnit }
-                                toConvertUnit = convertUnits[0]
-                            }
+                        .pickerStyle(.segmented)
+                        .onChange(of: selectedUnit) {
+                            // This works with the bottom 'let' to dynamically update based on the selectedUnit
+                            let convertUnits = units.filter { $0 != selectedUnit }
+                            toConvertUnit = convertUnits[0]
                         }
                     }
-                    
-                    Section("Convert to") {
-                        // Dynamically modify the picker
-                        HStack {
-                            Text("Unit: ")
-                            Picker("Select unit", selection: $toConvertUnit) {
-                                // This allows the picker to dynamically update based on the selectedUnit
-                                let convertUnits = units.filter { $0 != selectedUnit }
-                                ForEach(convertUnits, id: \.self) {
-                                    Text($0)
-                                }
+                }
+                
+                Section("Convert to") {
+                    // Dynamically modify the picker
+                    HStack {
+                        Text("Unit: ")
+                        Picker("Select unit", selection: $toConvertUnit) {
+                            // This allows the picker to dynamically update based on the selectedUnit
+                            let convertUnits = units.filter { $0 != selectedUnit }
+                            ForEach(convertUnits, id: \.self) {
+                                Text($0)
                             }
-                            .pickerStyle(.segmented)
                         }
-                        
-                        HStack {
-                            Text("Result:")
-                            Spacer()
-                            Text(conversionResult(toConvert:toConvertUnit))
-                        }
+                        .pickerStyle(.segmented)
+                    }
+                    
+                    HStack {
+                        Text("Result:")
+                        Spacer()
+                        Text(conversionResult(toConvert:toConvertUnit))
                     }
                 }
             }
