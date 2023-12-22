@@ -11,7 +11,7 @@ struct ContentView: View {
     
     // Modify segment picker colors
     init() {
-        UISegmentedControl.appearance().selectedSegmentTintColor = .init(red: 0.2, green: 0.7, blue: 0.9, alpha: 1)
+        UISegmentedControl.appearance().selectedSegmentTintColor = .init(red: 0.9, green: 0.5, blue: 0.3, alpha: 0.35)
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.black], for: .normal)
     }
@@ -66,7 +66,7 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                LinearGradient(colors: [Color.blue, Color.mint],
+                LinearGradient(colors: [Color.orange, Color.mint],
                                startPoint: .top, endPoint: .bottom)
                 .opacity(0.5)
                 .ignoresSafeArea()
