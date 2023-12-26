@@ -124,3 +124,28 @@ let sayHelloUser = { (name: String) -> String in
 }
 
 print(sayHelloUser("Tim"))
+
+/// Non-dictionary stuff
+// Gradients
+//         LinearGradient(stops: [
+//            .init(color:.mint, location: 0),
+//            .init(color:.blue, location: 0.8)
+//        ], startPoint: .top, endPoint: .bottom)
+//        .ignoresSafeArea()
+//        RadialGradient(colors: [.blue, .mint], center: .center, startRadius: 0, endRadius: 250)
+//        AngularGradient(colors: [.red, .yellow, .green, .blue, .purple, .red], center: .center)
+//        Text("Your content")
+//            .frame(maxWidth: .infinity, maxHeight: .infinity)
+//            .foregroundStyle(.white)
+//            .background(.blue.gradient)
+//        
+//        Alert
+//        Button("Show alert") {
+//            showingAlert = true
+//        }
+//        .alert("Important message", isPresented: $showingAlert) {
+//            Button("Delete", role: .destructive) { }
+//        } message: {
+//            Text("Please read this")
+//        }
+//    }
