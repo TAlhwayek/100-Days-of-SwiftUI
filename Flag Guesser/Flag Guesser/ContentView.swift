@@ -21,18 +21,18 @@ struct FlagImage: View {
 }
 
 // Project #3 - Challenge #3
-struct GreenTitle: ViewModifier {
+struct WhiteTitle: ViewModifier {
     func body(content: Content) -> some View {
         content
             .font(.largeTitle.weight(.semibold))
             // Green is more visible than blue in this case
-            .foregroundStyle(.green)
+            .foregroundStyle(.white)
     }
 }
 
 extension View {
-    func GreenTitleStyle() -> some View {
-        modifier(GreenTitle())
+    func WhiteTitleStyle() -> some View {
+        modifier(WhiteTitle())
     }
 }
 
@@ -70,7 +70,7 @@ struct ContentView: View {
                             .font(.subheadline.weight(.heavy))
                         
                         Text(countries[correctAnswer])
-                            .GreenTitleStyle()
+                            .WhiteTitleStyle()
                     }
                     
                     // Generate flag images
