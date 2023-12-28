@@ -75,7 +75,10 @@ struct ContentView: View {
                 // Show pre-split total (total + tip)
                 Section("Total") {
                     Text(totalPlusTip, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
+                    // Proj #3 - Challenge #1
+                    .foregroundStyle(tipPercentage == 0 ? .red : .black)
                 }
+                
                 
                 Section("Amount per person") {
                     Text(totalPerPerson, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
