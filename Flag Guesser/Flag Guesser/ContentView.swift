@@ -20,11 +20,28 @@ struct FlagImage: View {
     }
 }
 
+// Project #3 - Challenge #3
+struct GreenTitle: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.largeTitle.weight(.semibold))
+            // Green is more visible than blue in this case
+            .foregroundStyle(.green)
+    }
+}
+
+extension View {
+    func GreenTitleStyle() -> some View {
+        modifier(GreenTitle())
+    }
+}
+
 struct ContentView: View {
     
     @State private var gameOver = false
     @State private var showingScore = false
     @State private var scoreTitle = ""
+    @State private var scoreMessage = ""
     
     @State private var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Spain", "UK", "Ukraine", "US"].shuffled()
     @State private var correctAnswer = Int.random(in: 0...2)
@@ -53,7 +70,7 @@ struct ContentView: View {
                             .font(.subheadline.weight(.heavy))
                         
                         Text(countries[correctAnswer])
-                            .font(.largeTitle.weight(.semibold))
+                            .GreenTitleStyle()
                     }
                     
                     // Generate flag images
@@ -85,32 +102,34 @@ struct ContentView: View {
         .alert(scoreTitle, isPresented: $showingScore) {
             Button("Continue", action: askQuestion)
         } message: {
-            Text("Your score is: \(score)")
+            Text(scoreMessage)
         }
-        .alert("Game Over", isPresented: $gameOver) {
+        .alert(scoreTitle, isPresented: $gameOver) {
+            Button("Done") { }
             Button("Retry?", action: resetGame)
         } message: {
-            Text("Your final score is \(score)")
+            Text(scoreMessage)
         }
     }
     
     // When a flag is tapped
     func flagTapped(_ number: Int) {
-        rounds += 1
-        
-        if number == correctAnswer {
-            scoreTitle = "Correct"
-            score += 1
-        } else {
-            scoreTitle = "Wrong, that's the flag of \(countries[number])"
+        if rounds < 8 {
+            rounds += 1
+            
+            if number == correctAnswer {
+                scoreTitle = "You got it!"
+                score += 1
+            } else {
+                scoreTitle = "Wrong. That's the flag of \(countries[number])"
+            }
+            
+            scoreMessage = rounds >= 8 ? "Game Over\nFinal score: \(score)" : "Your score is: \(score)"
+            // Determine which alert to show based on round
+            showingScore = rounds < 8 ? true : false
+            gameOver = rounds >= 8 ? true : false
         }
-        
-        // Game over comes before showing score because this made them trigger in the right order
-        if(rounds >= 2) {
-            gameOver = true
-        }
-        
-        showingScore = true;
+        // Do nothing after rounds are over
     }
     
     // Reshuffle array and get new correct answer
