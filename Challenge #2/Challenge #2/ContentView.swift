@@ -25,21 +25,34 @@ struct ContentView: View {
                 .ignoresSafeArea()
             
             VStack {
+                // Title
                 Text("Fake RPS")
                     .font(.title2)
                 
                 Spacer()
                 
-                Text("Bot selected: \(RPS[selectedRPS])")
+                VStack {
+                    // Two middle headers
+                    HStack {
+                        Text("Bot selected:")
+                        Text(RPS[selectedRPS])
+                            .bold()
+                    }
                     .font(.title)
-                    .padding()
-                Text("You should: \(winOrLose())")
-                    .font(.title2)
-                
+                    
+                    HStack {
+                        Text("You should:")
+                        Text(winOrLose())
+                            .bold()
+                    }
+                    .font(.title)
+                    .padding(5)
+                }
                 
                 Spacer()
                 Spacer()
                 
+                // Creating buttons
                 VStack {
                     ForEach(0..<3) { number in
                         Button(action:  {
@@ -57,6 +70,7 @@ struct ContentView: View {
                 }
                 .padding()
                 
+                // Score text
                 Text("Score: \(score)")
                 Spacer()
             }
@@ -117,6 +131,7 @@ struct ContentView: View {
         }
     }
     
+    // Reset game upon restart
     func resetGame() {
         score = 0
         roundsPlayed = 0
