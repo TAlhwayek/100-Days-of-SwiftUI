@@ -14,10 +14,11 @@ struct ContentView: View {
     @State private var playerShouldWin = Bool.random()
     @State private var score = 0
     
-    
     // For alert
     @State private var roundsPlayed = 0
     @State private var showFinalAlert = false
+    
+    let buttonColors: [Color] = [.red, .blue, .green]
     
     var body: some View {
         ZStack {
@@ -61,7 +62,7 @@ struct ContentView: View {
                             Text(RPS[number])
                                 .frame(width: 150, height: 50)
                                 .foregroundColor(.black)
-                                .background(.blue)
+                                .background(buttonColors[number])
                                 .contentShape(.buttonBorder)
                                 .clipShape(.buttonBorder)
                                 .padding(5)
