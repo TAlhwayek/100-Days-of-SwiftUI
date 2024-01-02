@@ -14,6 +14,11 @@ struct ContentView: View {
     @State private var playerShouldWin = Bool.random()
     @State private var score = 0
     
+    
+    // For alert
+    @State private var roundsPlayed = 0
+    @State private var showFinalAlert = false
+    
     var body: some View {
         ZStack {
             LinearGradient(colors: [.blue, .mint], startPoint: .top, endPoint: .bottom)
@@ -56,17 +61,27 @@ struct ContentView: View {
                 Spacer()
             }
         }
+        .alert("Game Over", isPresented: $showFinalAlert) {
+            Button("Restart?", action: resetGame)
+        } message: {
+            Text("In 10 rounds, you got \(score) points")
+        }
     }
     
     // Proceed to next round
     func nextRound() {
-        selectedRPS = Int.random(in: 0...2)
-        playerShouldWin = Bool.random()
+        if(roundsPlayed >= 10) {
+            showFinalAlert = true
+        } else {
+            selectedRPS = Int.random(in: 0...2)
+            playerShouldWin.toggle()
+        }
     }
     
     // Check answer based on user choice
     func checkAnswer(move: Int) {
-        // Check logic here
+        roundsPlayed += 1
+        
         switch selectedRPS {
         // If bot selected rock
         case 0:
@@ -85,15 +100,15 @@ struct ContentView: View {
             if (move == 0 && playerShouldWin) || (move == 1 && !playerShouldWin) {
                 score += 1
             }
+            
         default:
             // No clue what to put here
             print("Error")
         }
-        
-        
         nextRound()
     }
     
+    // Return text based on bool
     func winOrLose() -> String {
         if playerShouldWin {
             return "Win"
@@ -102,7 +117,11 @@ struct ContentView: View {
         }
     }
     
-
+    func resetGame() {
+        score = 0
+        roundsPlayed = 0
+        nextRound()
+    }
     
 }
 
