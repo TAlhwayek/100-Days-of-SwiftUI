@@ -16,15 +16,24 @@ struct ContentView: View {
     @State private var errorMessage = ""
     @State private var showingError = false
     
+    @State private var score = 0
+    
     var body: some View {
         NavigationStack {
+            
+            // Challenge #3
+            Text("Score: \(score)")
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding()
+            
             List {
-                Section {
+                Section("Enter word") {
                     TextField("Enter your word", text: $newWord)
                         .textInputAutocapitalization(.never)
+                    
                 }
                 
-                Section {
+                Section("Used words") {
                     ForEach(usedWords, id: \.self) { word in
                         HStack {
                             Image(systemName: "\(word.count).circle")
@@ -79,13 +88,11 @@ struct ContentView: View {
             return
         }
         
-        
-        
-        
         withAnimation {
             usedWords.insert(answer, at: 0)
         }
         
+        calculateScore(word: answer)
         newWord = ""
     }
     
@@ -136,8 +143,14 @@ struct ContentView: View {
         return word.count >= 3
     }
     
+    // Check if submitted word is the default root word
     func isRootWord(word: String) -> Bool {
         return !(word == rootWord)
+    }
+    
+    // Challenge #3
+    func calculateScore(word: String) {
+        score += word.count
     }
     
     func wordError(title: String, message: String) {
