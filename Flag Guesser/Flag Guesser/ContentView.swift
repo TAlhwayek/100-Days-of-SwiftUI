@@ -25,7 +25,7 @@ struct WhiteTitle: ViewModifier {
     func body(content: Content) -> some View {
         content
             .font(.largeTitle.weight(.semibold))
-            // Green is more visible than blue in this case
+        // Green is more visible than blue in this case
             .foregroundStyle(.white)
     }
 }
@@ -51,6 +51,7 @@ struct ContentView: View {
     @State private var animationAmount = 0.0
     @State private var flagTapped = 0
     @State private var opacityAmount = 1.0
+    @State private var scaleAmount = 1.0
     
     var body: some View {
         ZStack {
@@ -90,6 +91,7 @@ struct ContentView: View {
                             axis: (x: 0, y: 1, z: 0)
                         )
                         .opacity(number == correctAnswer ? 1 : opacityAmount)
+                        .scaleEffect(number == correctAnswer ? 1 : scaleAmount)
                     }
                 }
                 .frame(maxWidth: .infinity)
@@ -133,6 +135,7 @@ struct ContentView: View {
                 withAnimation {
                     animationAmount += 360
                     opacityAmount = 0.25
+                    scaleAmount = 0.2
                 }
             } else {
                 scoreTitle = "Wrong. That's the flag of \(countries[number])"
@@ -150,7 +153,9 @@ struct ContentView: View {
     func askQuestion() {
         countries.shuffle()
         correctAnswer = Int.random(in: 0...2)
+        // Return animation variables back to normal
         opacityAmount = 1.0
+        scaleAmount = 1
     }
     
     // Reset
