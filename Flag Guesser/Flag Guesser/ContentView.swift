@@ -48,6 +48,10 @@ struct ContentView: View {
     @State private var score = 0
     @State private var rounds = 0
     
+    @State private var animationAmount = 0.0
+    @State private var flagTapped = 0
+    @State private var opacityAmount = 1.0
+    
     var body: some View {
         ZStack {
             // LinearGradient(colors: [.mint, .black], startPoint: .top, endPoint: .bottom)
@@ -80,6 +84,12 @@ struct ContentView: View {
                         } label: {
                             FlagImage(image: countries[number])
                         }
+                        // THIS NEEDS TO BE FIXED SINCE IT DOES LOL RIGHT NOW
+                        .rotation3DEffect(
+                            .degrees(number == correctAnswer ? animationAmount : 0),
+                            axis: (x: 0, y: 1, z: 0)
+                        )
+                        .opacity(number == correctAnswer ? 1 : opacityAmount)
                     }
                 }
                 .frame(maxWidth: .infinity)
@@ -120,6 +130,10 @@ struct ContentView: View {
             if number == correctAnswer {
                 scoreTitle = "You got it!"
                 score += 1
+                withAnimation {
+                    animationAmount += 360
+                    opacityAmount = 0.25
+                }
             } else {
                 scoreTitle = "Wrong. That's the flag of \(countries[number])"
             }
@@ -136,6 +150,7 @@ struct ContentView: View {
     func askQuestion() {
         countries.shuffle()
         correctAnswer = Int.random(in: 0...2)
+        opacityAmount = 1.0
     }
     
     // Reset
