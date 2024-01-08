@@ -1,14 +1,14 @@
 //
-//  iExpenseApp.swift
-//  iExpense
+//  Expense_AppApp.swift
+//  Expense App
 //
-//  Created by Tony Alhwayek on 1/6/24.
+//  Created by Tony Alhwayek on 1/8/24.
 //
 
 import SwiftUI
 
 @main
-struct iExpenseApp: App {
+struct Expense_AppApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()

@@ -5,22 +5,11 @@
 //  Created by Tony Alhwayek on 1/6/24.
 //
 
-import Observation
+
 import SwiftUI
 
-struct SecondView: View {
-    @Environment(\.dismiss) var dismiss
-    let name: String
-    
-    var body: some View {
-        Button("Dismiss") {
-            dismiss()
-        }
-    }
-}
-
-struct ExpenseItem: Identifiable {
-    let id = UUID()
+struct ExpenseItem: Identifiable, Codable {
+    var id = UUID()
     let name: String
     let type: String
     let amount: Double
@@ -28,12 +17,29 @@ struct ExpenseItem: Identifiable {
 
 @Observable
 class Expenses {
-    var items = [ExpenseItem]()
+    var items = [ExpenseItem]() {
+        didSet {
+            if let encoded = try? JSONEncoder().encode(items) {
+                UserDefaults.standard.set(encoded, forKey: "Items")
+            }
+        }
+    }
+    
+    init() {
+        if let savedItems = UserDefaults.standard.data(forKey: "Items") {
+            if let decodedItems = try? JSONDecoder().decode([ExpenseItem].self, from: savedItems) {
+                items = decodedItems
+                return
+            }
+        }
+        
+        items = []
+    }
 }
+
 
 struct ContentView: View {
     @State private var expenses = Expenses()
-    
     @State private var showingAddExpense = false
     
     var body: some View {
@@ -47,7 +53,7 @@ struct ContentView: View {
             .navigationTitle("iExpense")
             .toolbar {
                 Button("Add Expense", systemImage: "plus") {
-                   showingAddExpense = true
+                    showingAddExpense = true
                 }
             }
             .sheet(isPresented: $showingAddExpense) {

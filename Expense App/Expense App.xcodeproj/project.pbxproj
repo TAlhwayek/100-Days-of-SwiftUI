@@ -7,24 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9B67F1F92B498B8700946FD3 /* iExpenseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B67F1F82B498B8700946FD3 /* iExpenseApp.swift */; };
-		9B67F1FB2B498B8700946FD3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B67F1FA2B498B8700946FD3 /* ContentView.swift */; };
-		9B67F1FD2B498B8900946FD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B67F1FC2B498B8900946FD3 /* Assets.xcassets */; };
-		9B67F2002B498B8900946FD3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B67F1FF2B498B8900946FD3 /* Preview Assets.xcassets */; };
-		9BB23B592B4C483700FAD551 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB23B582B4C483700FAD551 /* AddView.swift */; };
+		9BB23B672B4C4EBE00FAD551 /* Expense_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB23B662B4C4EBE00FAD551 /* Expense_AppApp.swift */; };
+		9BB23B692B4C4EBE00FAD551 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB23B682B4C4EBE00FAD551 /* ContentView.swift */; };
+		9BB23B6B2B4C4EC000FAD551 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BB23B6A2B4C4EC000FAD551 /* Assets.xcassets */; };
+		9BB23B6E2B4C4EC000FAD551 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BB23B6D2B4C4EC000FAD551 /* Preview Assets.xcassets */; };
+		9BB23B752B4C4EDB00FAD551 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB23B742B4C4EDB00FAD551 /* AddView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9B67F1F52B498B8700946FD3 /* iExpense.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iExpense.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		9B67F1F82B498B8700946FD3 /* iExpenseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iExpenseApp.swift; sourceTree = "<group>"; };
-		9B67F1FA2B498B8700946FD3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		9B67F1FC2B498B8900946FD3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		9B67F1FF2B498B8900946FD3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		9BB23B582B4C483700FAD551 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
+		9BB23B632B4C4EBE00FAD551 /* Expense App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Expense App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BB23B662B4C4EBE00FAD551 /* Expense_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense_AppApp.swift; sourceTree = "<group>"; };
+		9BB23B682B4C4EBE00FAD551 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		9BB23B6A2B4C4EC000FAD551 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9BB23B6D2B4C4EC000FAD551 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		9BB23B742B4C4EDB00FAD551 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		9B67F1F22B498B8700946FD3 /* Frameworks */ = {
+		9BB23B602B4C4EBE00FAD551 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -34,38 +34,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9B67F1EC2B498B8700946FD3 = {
+		9BB23B5A2B4C4EBE00FAD551 = {
 			isa = PBXGroup;
 			children = (
-				9B67F1F72B498B8700946FD3 /* iExpense */,
-				9B67F1F62B498B8700946FD3 /* Products */,
+				9BB23B652B4C4EBE00FAD551 /* Expense App */,
+				9BB23B642B4C4EBE00FAD551 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		9B67F1F62B498B8700946FD3 /* Products */ = {
+		9BB23B642B4C4EBE00FAD551 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9B67F1F52B498B8700946FD3 /* iExpense.app */,
+				9BB23B632B4C4EBE00FAD551 /* Expense App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9B67F1F72B498B8700946FD3 /* iExpense */ = {
+		9BB23B652B4C4EBE00FAD551 /* Expense App */ = {
 			isa = PBXGroup;
 			children = (
-				9B67F1F82B498B8700946FD3 /* iExpenseApp.swift */,
-				9B67F1FA2B498B8700946FD3 /* ContentView.swift */,
-				9BB23B582B4C483700FAD551 /* AddView.swift */,
-				9B67F1FC2B498B8900946FD3 /* Assets.xcassets */,
-				9B67F1FE2B498B8900946FD3 /* Preview Content */,
+				9BB23B662B4C4EBE00FAD551 /* Expense_AppApp.swift */,
+				9BB23B682B4C4EBE00FAD551 /* ContentView.swift */,
+				9BB23B742B4C4EDB00FAD551 /* AddView.swift */,
+				9BB23B6A2B4C4EC000FAD551 /* Assets.xcassets */,
+				9BB23B6C2B4C4EC000FAD551 /* Preview Content */,
 			);
-			path = iExpense;
+			path = "Expense App";
 			sourceTree = "<group>";
 		};
-		9B67F1FE2B498B8900946FD3 /* Preview Content */ = {
+		9BB23B6C2B4C4EC000FAD551 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				9B67F1FF2B498B8900946FD3 /* Preview Assets.xcassets */,
+				9BB23B6D2B4C4EC000FAD551 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -73,39 +73,39 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9B67F1F42B498B8700946FD3 /* iExpense */ = {
+		9BB23B622B4C4EBE00FAD551 /* Expense App */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9B67F2032B498B8900946FD3 /* Build configuration list for PBXNativeTarget "iExpense" */;
+			buildConfigurationList = 9BB23B712B4C4EC000FAD551 /* Build configuration list for PBXNativeTarget "Expense App" */;
 			buildPhases = (
-				9B67F1F12B498B8700946FD3 /* Sources */,
-				9B67F1F22B498B8700946FD3 /* Frameworks */,
-				9B67F1F32B498B8700946FD3 /* Resources */,
+				9BB23B5F2B4C4EBE00FAD551 /* Sources */,
+				9BB23B602B4C4EBE00FAD551 /* Frameworks */,
+				9BB23B612B4C4EBE00FAD551 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = iExpense;
-			productName = iExpense;
-			productReference = 9B67F1F52B498B8700946FD3 /* iExpense.app */;
+			name = "Expense App";
+			productName = "Expense App";
+			productReference = 9BB23B632B4C4EBE00FAD551 /* Expense App.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		9B67F1ED2B498B8700946FD3 /* Project object */ = {
+		9BB23B5B2B4C4EBE00FAD551 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1510;
 				LastUpgradeCheck = 1510;
 				TargetAttributes = {
-					9B67F1F42B498B8700946FD3 = {
+					9BB23B622B4C4EBE00FAD551 = {
 						CreatedOnToolsVersion = 15.1;
 					};
 				};
 			};
-			buildConfigurationList = 9B67F1F02B498B8700946FD3 /* Build configuration list for PBXProject "iExpense" */;
+			buildConfigurationList = 9BB23B5E2B4C4EBE00FAD551 /* Build configuration list for PBXProject "Expense App" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -113,43 +113,43 @@
 				en,
 				Base,
 			);
-			mainGroup = 9B67F1EC2B498B8700946FD3;
-			productRefGroup = 9B67F1F62B498B8700946FD3 /* Products */;
+			mainGroup = 9BB23B5A2B4C4EBE00FAD551;
+			productRefGroup = 9BB23B642B4C4EBE00FAD551 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9B67F1F42B498B8700946FD3 /* iExpense */,
+				9BB23B622B4C4EBE00FAD551 /* Expense App */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		9B67F1F32B498B8700946FD3 /* Resources */ = {
+		9BB23B612B4C4EBE00FAD551 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B67F2002B498B8900946FD3 /* Preview Assets.xcassets in Resources */,
-				9B67F1FD2B498B8900946FD3 /* Assets.xcassets in Resources */,
+				9BB23B6E2B4C4EC000FAD551 /* Preview Assets.xcassets in Resources */,
+				9BB23B6B2B4C4EC000FAD551 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		9B67F1F12B498B8700946FD3 /* Sources */ = {
+		9BB23B5F2B4C4EBE00FAD551 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B67F1FB2B498B8700946FD3 /* ContentView.swift in Sources */,
-				9B67F1F92B498B8700946FD3 /* iExpenseApp.swift in Sources */,
-				9BB23B592B4C483700FAD551 /* AddView.swift in Sources */,
+				9BB23B692B4C4EBE00FAD551 /* ContentView.swift in Sources */,
+				9BB23B672B4C4EBE00FAD551 /* Expense_AppApp.swift in Sources */,
+				9BB23B752B4C4EDB00FAD551 /* AddView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		9B67F2012B498B8900946FD3 /* Debug */ = {
+		9BB23B6F2B4C4EC000FAD551 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -212,7 +212,7 @@
 			};
 			name = Debug;
 		};
-		9B67F2022B498B8900946FD3 /* Release */ = {
+		9BB23B702B4C4EC000FAD551 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -268,14 +268,14 @@
 			};
 			name = Release;
 		};
-		9B67F2042B498B8900946FD3 /* Debug */ = {
+		9BB23B722B4C4EC000FAD551 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"iExpense/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Expense App/Preview Content\"";
 				DEVELOPMENT_TEAM = X6V95URS4Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -289,7 +289,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.alhwayek.iExpense;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alhwayek.Expense-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -297,14 +297,14 @@
 			};
 			name = Debug;
 		};
-		9B67F2052B498B8900946FD3 /* Release */ = {
+		9BB23B732B4C4EC000FAD551 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"iExpense/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Expense App/Preview Content\"";
 				DEVELOPMENT_TEAM = X6V95URS4Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -318,7 +318,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.alhwayek.iExpense;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alhwayek.Expense-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -329,25 +329,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9B67F1F02B498B8700946FD3 /* Build configuration list for PBXProject "iExpense" */ = {
+		9BB23B5E2B4C4EBE00FAD551 /* Build configuration list for PBXProject "Expense App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9B67F2012B498B8900946FD3 /* Debug */,
-				9B67F2022B498B8900946FD3 /* Release */,
+				9BB23B6F2B4C4EC000FAD551 /* Debug */,
+				9BB23B702B4C4EC000FAD551 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9B67F2032B498B8900946FD3 /* Build configuration list for PBXNativeTarget "iExpense" */ = {
+		9BB23B712B4C4EC000FAD551 /* Build configuration list for PBXNativeTarget "Expense App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9B67F2042B498B8900946FD3 /* Debug */,
-				9B67F2052B498B8900946FD3 /* Release */,
+				9BB23B722B4C4EC000FAD551 /* Debug */,
+				9BB23B732B4C4EC000FAD551 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 9B67F1ED2B498B8700946FD3 /* Project object */;
+	rootObject = 9BB23B5B2B4C4EBE00FAD551 /* Project object */;
 }
