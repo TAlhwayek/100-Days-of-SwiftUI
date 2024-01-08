@@ -8,12 +8,6 @@
 import Observation
 import SwiftUI
 
-@Observable
-class User {
-    var firstName = "Bilbo"
-    var lastName = "Baggins"
-}
-
 struct SecondView: View {
     @Environment(\.dismiss) var dismiss
     let name: String
@@ -25,56 +19,40 @@ struct SecondView: View {
     }
 }
 
+struct ExpenseItem {
+    let name: String
+    let type: String
+    let amount: Double
+}
+
+@Observable
+class Expenses {
+    var items = [ExpenseItem]()
+}
+
 struct ContentView: View {
-    @State private var user = User()
-    @State private var showingSheet = false
-    @State private var numbers = [Int]()
-    @State private var currentNumber = 1
-    @State private var tapCount = UserDefaults.standard.integer(forKey: "Tap")
+    @State private var expenses = Expenses()
     
     var body: some View {
         NavigationStack {
-            VStack {
-                Text("Your name is \(user.firstName) \(user.lastName)")
-                
-                TextField("First name", text: $user.firstName)
-                TextField("Last name", text: $user.lastName)
-                
-                Button("Show Sheet") {
-                    showingSheet.toggle()
-                }
-                .sheet(isPresented: $showingSheet) {
-                    SecondView(name: "Tony")
-                }
-                
-                
-                List {
-                    ForEach(numbers, id: \.self) {
-                        Text("Row \($0)")
-                    }
-                    .onDelete(perform: removeRows)
-                }
-                
-                Button("Tap count: \(tapCount)") {
-                    tapCount += 1
-                    
-                    UserDefaults.standard.set(tapCount, forKey: "Tap")
-                }
-                
-                Button("Add numbers") {
-                    numbers.append(currentNumber)
-                    currentNumber += 1
+            List {
+                ForEach(expenses.items, id: \.name) { item in
+                    Text(item.name)
                 }
             }
+            .navigationTitle("iExpense")
             .toolbar {
-                EditButton()
+                Button("Add Expense", systemImage: "plus") {
+                    let expense = ExpenseItem(name: "Test", type: "Personal", amount: 5)
+                    expenses.items.append(expense)
+                }
             }
         }
         
     }
     
-    func removeRows(at offsets: IndexSet) {
-        numbers.remove(atOffsets: offsets)
+    func removeItems(at offset: IndexSet) {
+        expenses.items.remove(atOffsets: offset)
     }
 }
 
