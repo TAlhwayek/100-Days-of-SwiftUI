@@ -109,7 +109,6 @@ struct GameView: View {
         } else {
             showAlert = true
         }
-        
     }
     
     func generateRandomNumber() {
@@ -117,8 +116,8 @@ struct GameView: View {
         
         var i = 0
         while i < 4 {
-            let randomNumber1 = Int.random(in: (maxNumbers - 4)...maxNumbers)
-            let randomNumber2 = Int.random(in: (maxNumbers - 4)...maxNumbers)
+            let randomNumber1 = Int.random(in: (maxNumbers - 8)...maxNumbers)
+            let randomNumber2 = Int.random(in: (maxNumbers - 8)...maxNumbers)
             let result = randomNumber1 * randomNumber2
             
             // Avoid dupilicates
@@ -138,12 +137,13 @@ struct GameView: View {
     }
     
     func checkAnswer(_ number: Int) {
+        // Could add animation here. Like lowering opacity of all wrong answers or something.
         if correctAnswer == answers[number] {
             score += 1
-        } else {
-            
         }
-        
+        //else {
+        // Do nothing for now. Maybe show user mistake.
+        //}
         newRound()
     }
     
