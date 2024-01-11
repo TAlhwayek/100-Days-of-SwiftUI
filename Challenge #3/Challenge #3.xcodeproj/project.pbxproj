@@ -7,22 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9B5C2AF92B4F75D900B8DAFC /* Challenge__3___MultipliplaytionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5C2AF82B4F75D900B8DAFC /* Challenge__3___MultipliplaytionApp.swift */; };
-		9B5C2AFB2B4F75D900B8DAFC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5C2AFA2B4F75D900B8DAFC /* ContentView.swift */; };
-		9B5C2AFD2B4F75DA00B8DAFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B5C2AFC2B4F75DA00B8DAFC /* Assets.xcassets */; };
-		9B5C2B002B4F75DA00B8DAFC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B5C2AFF2B4F75DA00B8DAFC /* Preview Assets.xcassets */; };
+		9B5C2B132B4F76CF00B8DAFC /* Challenge__3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5C2B122B4F76CF00B8DAFC /* Challenge__3App.swift */; };
+		9B5C2B152B4F76CF00B8DAFC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5C2B142B4F76CF00B8DAFC /* ContentView.swift */; };
+		9B5C2B172B4F76D100B8DAFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B5C2B162B4F76D100B8DAFC /* Assets.xcassets */; };
+		9B5C2B1A2B4F76D100B8DAFC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B5C2B192B4F76D100B8DAFC /* Preview Assets.xcassets */; };
+		9B5C2B212B4F76F700B8DAFC /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5C2B202B4F76F700B8DAFC /* GameView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9B5C2AF52B4F75D900B8DAFC /* Challenge #3 - Multipliplaytion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Challenge #3 - Multipliplaytion.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9B5C2AF82B4F75D900B8DAFC /* Challenge__3___MultipliplaytionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Challenge__3___MultipliplaytionApp.swift"; sourceTree = "<group>"; };
-		9B5C2AFA2B4F75D900B8DAFC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		9B5C2AFC2B4F75DA00B8DAFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		9B5C2AFF2B4F75DA00B8DAFC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		9B5C2B0F2B4F76CF00B8DAFC /* Challenge #3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Challenge #3.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B5C2B122B4F76CF00B8DAFC /* Challenge__3App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge__3App.swift; sourceTree = "<group>"; };
+		9B5C2B142B4F76CF00B8DAFC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		9B5C2B162B4F76D100B8DAFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9B5C2B192B4F76D100B8DAFC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		9B5C2B202B4F76F700B8DAFC /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		9B5C2AF22B4F75D900B8DAFC /* Frameworks */ = {
+		9B5C2B0C2B4F76CF00B8DAFC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -32,37 +34,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9B5C2AEC2B4F75D900B8DAFC = {
+		9B5C2B062B4F76CF00B8DAFC = {
 			isa = PBXGroup;
 			children = (
-				9B5C2AF72B4F75D900B8DAFC /* Challenge #3 - Multipliplaytion */,
-				9B5C2AF62B4F75D900B8DAFC /* Products */,
+				9B5C2B112B4F76CF00B8DAFC /* Challenge #3 */,
+				9B5C2B102B4F76CF00B8DAFC /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		9B5C2AF62B4F75D900B8DAFC /* Products */ = {
+		9B5C2B102B4F76CF00B8DAFC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9B5C2AF52B4F75D900B8DAFC /* Challenge #3 - Multipliplaytion.app */,
+				9B5C2B0F2B4F76CF00B8DAFC /* Challenge #3.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9B5C2AF72B4F75D900B8DAFC /* Challenge #3 - Multipliplaytion */ = {
+		9B5C2B112B4F76CF00B8DAFC /* Challenge #3 */ = {
 			isa = PBXGroup;
 			children = (
-				9B5C2AF82B4F75D900B8DAFC /* Challenge__3___MultipliplaytionApp.swift */,
-				9B5C2AFA2B4F75D900B8DAFC /* ContentView.swift */,
-				9B5C2AFC2B4F75DA00B8DAFC /* Assets.xcassets */,
-				9B5C2AFE2B4F75DA00B8DAFC /* Preview Content */,
+				9B5C2B122B4F76CF00B8DAFC /* Challenge__3App.swift */,
+				9B5C2B142B4F76CF00B8DAFC /* ContentView.swift */,
+				9B5C2B202B4F76F700B8DAFC /* GameView.swift */,
+				9B5C2B162B4F76D100B8DAFC /* Assets.xcassets */,
+				9B5C2B182B4F76D100B8DAFC /* Preview Content */,
 			);
-			path = "Challenge #3 - Multipliplaytion";
+			path = "Challenge #3";
 			sourceTree = "<group>";
 		};
-		9B5C2AFE2B4F75DA00B8DAFC /* Preview Content */ = {
+		9B5C2B182B4F76D100B8DAFC /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				9B5C2AFF2B4F75DA00B8DAFC /* Preview Assets.xcassets */,
+				9B5C2B192B4F76D100B8DAFC /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -70,39 +73,39 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9B5C2AF42B4F75D900B8DAFC /* Challenge #3 - Multipliplaytion */ = {
+		9B5C2B0E2B4F76CF00B8DAFC /* Challenge #3 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9B5C2B032B4F75DA00B8DAFC /* Build configuration list for PBXNativeTarget "Challenge #3 - Multipliplaytion" */;
+			buildConfigurationList = 9B5C2B1D2B4F76D100B8DAFC /* Build configuration list for PBXNativeTarget "Challenge #3" */;
 			buildPhases = (
-				9B5C2AF12B4F75D900B8DAFC /* Sources */,
-				9B5C2AF22B4F75D900B8DAFC /* Frameworks */,
-				9B5C2AF32B4F75D900B8DAFC /* Resources */,
+				9B5C2B0B2B4F76CF00B8DAFC /* Sources */,
+				9B5C2B0C2B4F76CF00B8DAFC /* Frameworks */,
+				9B5C2B0D2B4F76CF00B8DAFC /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Challenge #3 - Multipliplaytion";
-			productName = "Challenge #3 - Multipliplaytion";
-			productReference = 9B5C2AF52B4F75D900B8DAFC /* Challenge #3 - Multipliplaytion.app */;
+			name = "Challenge #3";
+			productName = "Challenge #3";
+			productReference = 9B5C2B0F2B4F76CF00B8DAFC /* Challenge #3.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		9B5C2AED2B4F75D900B8DAFC /* Project object */ = {
+		9B5C2B072B4F76CF00B8DAFC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1520;
 				LastUpgradeCheck = 1520;
 				TargetAttributes = {
-					9B5C2AF42B4F75D900B8DAFC = {
+					9B5C2B0E2B4F76CF00B8DAFC = {
 						CreatedOnToolsVersion = 15.2;
 					};
 				};
 			};
-			buildConfigurationList = 9B5C2AF02B4F75D900B8DAFC /* Build configuration list for PBXProject "Challenge #3 - Multipliplaytion" */;
+			buildConfigurationList = 9B5C2B0A2B4F76CF00B8DAFC /* Build configuration list for PBXProject "Challenge #3" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -110,42 +113,43 @@
 				en,
 				Base,
 			);
-			mainGroup = 9B5C2AEC2B4F75D900B8DAFC;
-			productRefGroup = 9B5C2AF62B4F75D900B8DAFC /* Products */;
+			mainGroup = 9B5C2B062B4F76CF00B8DAFC;
+			productRefGroup = 9B5C2B102B4F76CF00B8DAFC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9B5C2AF42B4F75D900B8DAFC /* Challenge #3 - Multipliplaytion */,
+				9B5C2B0E2B4F76CF00B8DAFC /* Challenge #3 */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		9B5C2AF32B4F75D900B8DAFC /* Resources */ = {
+		9B5C2B0D2B4F76CF00B8DAFC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B5C2B002B4F75DA00B8DAFC /* Preview Assets.xcassets in Resources */,
-				9B5C2AFD2B4F75DA00B8DAFC /* Assets.xcassets in Resources */,
+				9B5C2B1A2B4F76D100B8DAFC /* Preview Assets.xcassets in Resources */,
+				9B5C2B172B4F76D100B8DAFC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		9B5C2AF12B4F75D900B8DAFC /* Sources */ = {
+		9B5C2B0B2B4F76CF00B8DAFC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B5C2AFB2B4F75D900B8DAFC /* ContentView.swift in Sources */,
-				9B5C2AF92B4F75D900B8DAFC /* Challenge__3___MultipliplaytionApp.swift in Sources */,
+				9B5C2B152B4F76CF00B8DAFC /* ContentView.swift in Sources */,
+				9B5C2B212B4F76F700B8DAFC /* GameView.swift in Sources */,
+				9B5C2B132B4F76CF00B8DAFC /* Challenge__3App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		9B5C2B012B4F75DA00B8DAFC /* Debug */ = {
+		9B5C2B1B2B4F76D100B8DAFC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -208,7 +212,7 @@
 			};
 			name = Debug;
 		};
-		9B5C2B022B4F75DA00B8DAFC /* Release */ = {
+		9B5C2B1C2B4F76D100B8DAFC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -264,14 +268,14 @@
 			};
 			name = Release;
 		};
-		9B5C2B042B4F75DA00B8DAFC /* Debug */ = {
+		9B5C2B1E2B4F76D100B8DAFC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Challenge #3 - Multipliplaytion/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Challenge #3/Preview Content\"";
 				DEVELOPMENT_TEAM = X6V95URS4Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -285,7 +289,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.alhwayek.Challenge--3---Multipliplaytion";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alhwayek.Challenge--3";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -293,14 +297,14 @@
 			};
 			name = Debug;
 		};
-		9B5C2B052B4F75DA00B8DAFC /* Release */ = {
+		9B5C2B1F2B4F76D100B8DAFC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Challenge #3 - Multipliplaytion/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Challenge #3/Preview Content\"";
 				DEVELOPMENT_TEAM = X6V95URS4Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -314,7 +318,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.alhwayek.Challenge--3---Multipliplaytion";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alhwayek.Challenge--3";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -325,25 +329,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9B5C2AF02B4F75D900B8DAFC /* Build configuration list for PBXProject "Challenge #3 - Multipliplaytion" */ = {
+		9B5C2B0A2B4F76CF00B8DAFC /* Build configuration list for PBXProject "Challenge #3" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9B5C2B012B4F75DA00B8DAFC /* Debug */,
-				9B5C2B022B4F75DA00B8DAFC /* Release */,
+				9B5C2B1B2B4F76D100B8DAFC /* Debug */,
+				9B5C2B1C2B4F76D100B8DAFC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9B5C2B032B4F75DA00B8DAFC /* Build configuration list for PBXNativeTarget "Challenge #3 - Multipliplaytion" */ = {
+		9B5C2B1D2B4F76D100B8DAFC /* Build configuration list for PBXNativeTarget "Challenge #3" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9B5C2B042B4F75DA00B8DAFC /* Debug */,
-				9B5C2B052B4F75DA00B8DAFC /* Release */,
+				9B5C2B1E2B4F76D100B8DAFC /* Debug */,
+				9B5C2B1F2B4F76D100B8DAFC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 9B5C2AED2B4F75D900B8DAFC /* Project object */;
+	rootObject = 9B5C2B072B4F76CF00B8DAFC /* Project object */;
 }
