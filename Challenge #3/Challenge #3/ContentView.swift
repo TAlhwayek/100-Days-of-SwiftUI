@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var maxNumbers = 2
+    @State private var maxNumbers = 5
     @State private var numberOfQuestions = 10
     @State private var nameOfUser = ""
     
@@ -16,6 +16,7 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack {
+            
             ZStack {
                 LinearGradient(colors: [.mint, .green], startPoint: .top, endPoint: .bottom)
                     .ignoresSafeArea()
@@ -75,15 +76,25 @@ struct ContentView: View {
                     Spacer()
                     
                     // Start button
-                    NavigationLink(destination: GameView(nameOfUser: nameOfUser, maxNumbers: maxNumbers, numberOfQuestions: numberOfQuestions)) {
-                        Text("Start Playing")
+                    if(nameOfUser == "") {
+                        Button("Enter name first") {
+                            
+                        }
+                        .frame(width: 200, height: 50)
+                        .background(.gray)
+                        .foregroundStyle(.black)
+                        .cornerRadius(5)
+                    } else {
+                        NavigationLink(destination: GameView(nameOfUser: nameOfUser, maxNumbers: maxNumbers, numberOfQuestions: numberOfQuestions)) {
+                            Text("Start Playing")
+                        }
+                        .frame(width: 200, height: 50)
+                        .background(.blue)
+                        .foregroundStyle(.black)
+                        .cornerRadius(5)
+                        
+                        Spacer()
                     }
-                    .frame(width: 200, height: 50)
-                    .background(.blue)
-                    .foregroundStyle(.black)
-                    .cornerRadius(5)
-                    
-                    Spacer()
                 }
             }
             .navigationTitle("Multipliplaytion")

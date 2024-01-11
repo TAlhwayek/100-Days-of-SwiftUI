@@ -92,7 +92,7 @@ struct ContentView: View {
                                     .expenseStyle(for: item)
                             }
                         }
-                    }
+                }
                     .onDelete(perform: removeItems)
                 }
                 
