@@ -35,6 +35,8 @@ struct GameView: View {
     
     @State private var score = 0
     
+    @State private var showAlert = false
+    
     let columns = [
         GridItem(.adaptive(minimum: 150))
     ]
@@ -65,40 +67,6 @@ struct GameView: View {
                 Spacer()
                 Spacer()
                 
-//                VStack(spacing: 20) {
-//                    HStack(spacing: 30) {
-//                        Button() {
-//                            newRound()
-//                        } label: {
-//                            Text("\(answers[0])")
-//                                .gameButtonStyle()
-//                        }
-//                        
-//                        Button() {
-//                            newRound()
-//                        } label: {
-//                            Text("\(answers[1])")
-//                                .gameButtonStyle()
-//                        }
-//                    }
-//                    
-//                    HStack(spacing: 30) {
-//                        Button() {
-//                            newRound()
-//                        } label: {
-//                            Text("\(answers[2])")
-//                                .gameButtonStyle()
-//                        }
-//                        
-//                        Button() {
-//                            newRound()
-//                        } label: {
-//                            Text("\(answers[3])")
-//                                .gameButtonStyle()
-//                        }
-//                    }
-//                }
-//                Spacer()
                 
                 LazyVGrid(columns: columns, spacing: 15) {
                     ForEach(0..<4, id: \.self) { number in
@@ -116,7 +84,13 @@ struct GameView: View {
             }
         }
         .navigationBarBackButtonHidden(true)
+        .alert("Game Over", isPresented: $showAlert) {
+            Button("End Game") { }
+            Button("Restart?") { }
+            // Add alert message showing score
+        }
     }
+    
     
     
     func newRound() {
@@ -125,7 +99,7 @@ struct GameView: View {
             numberOfRounds -= 1
             generateRandomNumber()
         } else {
-            // PRESENT GAME OVER ALERT
+            showAlert = true
         }
         
     }

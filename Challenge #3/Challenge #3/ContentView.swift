@@ -12,7 +12,7 @@ struct ContentView: View {
     @State private var numberOfQuestions = 10
     @State private var nameOfUser = ""
     
-    var questionCount = [5, 10, 15, 20]
+    var questionCount = [5, 10, 15, 20, 1000]
     
     var body: some View {
         NavigationStack {
@@ -60,7 +60,11 @@ struct ContentView: View {
                             .font(.headline)
                         Picker("Questions", selection: $numberOfQuestions) {
                             ForEach(questionCount, id: \.self) { count in
-                                Text("\(count)")
+                                if count != 1000 {
+                                    Text("\(count)")
+                                } else {
+                                    Text("∞")
+                                }
                             }
                         }
                         .pickerStyle(.segmented)
