@@ -89,7 +89,8 @@ struct ContentView: View {
                         .frame(width: 200, height: 50)
                         .background(.gray)
                         .foregroundStyle(.black)
-                        .cornerRadius(5)
+                        .cornerRadius(10)
+                        .opacity(0.2)
                     } else {
                         NavigationLink(destination: GameView(nameOfUser: nameOfUser, maxNumbers: maxNumbers, numberOfRounds: numberOfRounds)) {
                             Text("Start Playing")
@@ -97,13 +98,13 @@ struct ContentView: View {
                         .frame(width: 200, height: 50)
                         .background(.blue)
                         .foregroundStyle(.black)
-                        .cornerRadius(5)
+                        .cornerRadius(10)
                         
                         Spacer()
                     }
                 }
             }
-            .navigationTitle("Multipliplaytion")
+            .navigationTitle("Settings")
         }
     }
 }

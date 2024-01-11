@@ -24,9 +24,12 @@ extension View {
 }
 
 struct GameView: View {
+    @Environment(\.presentationMode) var presentationMode
+    
     @State private var nameOfUser: String
     @State private var maxNumbers: Int
     @State private var numberOfRounds: Int
+    @State private var roundsPlayed = 0
     
     @State private var number1 = 2
     @State private var number2 = 2
@@ -36,15 +39,16 @@ struct GameView: View {
     @State private var score = 0
     
     @State private var showAlert = false
+
     
     let columns = [
         GridItem(.adaptive(minimum: 150))
     ]
     
     init(nameOfUser: String, maxNumbers: Int, numberOfRounds: Int) {
-        self.nameOfUser = nameOfUser
-        self.maxNumbers = maxNumbers
-        self.numberOfRounds = numberOfRounds
+        self._nameOfUser = State(initialValue: nameOfUser)
+        self._maxNumbers = State(initialValue: maxNumbers)
+        self._numberOfRounds = State(initialValue: numberOfRounds)
     }
     
     var body: some View {
@@ -83,19 +87,22 @@ struct GameView: View {
                 Text("Score: \(score)")
             }
         }
-        .navigationBarBackButtonHidden(true)
+//        .navigationBarBackButtonHidden(true)
         .alert("Game Over", isPresented: $showAlert) {
-            Button("End Game") { }
-            Button("Restart?") { }
+            Button("End Game") { 
+                presentationMode.wrappedValue.dismiss()
+            }
+            Button("Restart?") { 
+                restartGame()
+            }
             // Add alert message showing score
         }
     }
     
     
-    
     func newRound() {
-        if numberOfRounds > 0 {
-            numberOfRounds -= 1
+        if roundsPlayed < numberOfRounds - 1 {
+            roundsPlayed += 1
             generateRandomNumber()
         } else {
             showAlert = true
@@ -106,17 +113,25 @@ struct GameView: View {
     func generateRandomNumber() {
         answers.removeAll()
         
-        for i in 0..<4 {
-            let randomNumber1 = Int.random(in: 2...maxNumbers)
-            let randomNumber2 = Int.random(in: 2...maxNumbers)
+        var i = 0
+        while i < 4 {
+            let randomNumber1 = Int.random(in: (maxNumbers - 4)...maxNumbers)
+            let randomNumber2 = Int.random(in: (maxNumbers - 4)...maxNumbers)
             let result = randomNumber1 * randomNumber2
-            answers.append(result)
             
-            if i == 3 {
-                number1 = randomNumber1
-                number2 = randomNumber2
-                correctAnswer = result
+            // Avoid dupilicates
+            if !answers.contains(result) {
+                answers.append(result)
+                
+                if i == 3 {
+                    number1 = randomNumber1
+                    number2 = randomNumber2
+                    correctAnswer = result
+                }
+                
+                i += 1
             }
+            
         }
         
         answers.shuffle()
@@ -130,6 +145,12 @@ struct GameView: View {
         }
         
         newRound()
+    }
+    
+    func restartGame() {
+        score = 0
+        roundsPlayed = 0
+        generateRandomNumber()
     }
     
 }
