@@ -39,7 +39,7 @@ struct GameView: View {
     @State private var score = 0
     
     @State private var showAlert = false
-
+    
     
     let columns = [
         GridItem(.adaptive(minimum: 150))
@@ -87,15 +87,17 @@ struct GameView: View {
                 Text("Score: \(score)")
             }
         }
-//        .navigationBarBackButtonHidden(true)
-        .alert("Game Over", isPresented: $showAlert) {
-            Button("End Game") { 
-                presentationMode.wrappedValue.dismiss()
-            }
-            Button("Restart?") { 
-                restartGame()
-            }
-            // Add alert message showing score
+        .alert(isPresented: $showAlert) {
+            Alert(
+                title: Text("Game Over"),
+                message: Text("Your final score is \(score)."),
+                primaryButton: .default(Text("End Game")) {
+                    presentationMode.wrappedValue.dismiss()
+                },
+                secondaryButton: .default(Text("Restart?")) {
+                    restartGame()
+                }
+            )
         }
     }
     
@@ -128,12 +130,10 @@ struct GameView: View {
                     number2 = randomNumber2
                     correctAnswer = result
                 }
-                
+                // Increment only if item was appended
                 i += 1
             }
-            
         }
-        
         answers.shuffle()
     }
     
