@@ -41,10 +41,10 @@ struct GameView: View {
         GridItem(.adaptive(minimum: 150))
     ]
     
-    init(nameOfUser: String, maxNumbers: Int, numberOfQuestions: Int) {
+    init(nameOfUser: String, maxNumbers: Int, numberOfRounds: Int) {
         self.nameOfUser = nameOfUser
         self.maxNumbers = maxNumbers
-        self.numberOfRounds = numberOfQuestions
+        self.numberOfRounds = numberOfRounds
     }
     
     var body: some View {
@@ -74,7 +74,7 @@ struct GameView: View {
                             checkAnswer(number)
                         } label: {
                             Text("\(answers[number])")
-                           .gameButtonStyle()
+                                .gameButtonStyle()
                         }
                     }
                 }
@@ -94,7 +94,6 @@ struct GameView: View {
     
     
     func newRound() {
-        
         if numberOfRounds > 0 {
             numberOfRounds -= 1
             generateRandomNumber()
@@ -132,8 +131,9 @@ struct GameView: View {
         
         newRound()
     }
+    
 }
 
 #Preview {
-    GameView(nameOfUser: "Nameless Player", maxNumbers: 20, numberOfQuestions: 10)
+    GameView(nameOfUser: "Nameless Player", maxNumbers: 20, numberOfRounds: 10)
 }

@@ -9,14 +9,16 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var maxNumbers = 5
-    @State private var numberOfQuestions = 10
+    @State private var numberOfRounds = 10
     @State private var nameOfUser = ""
+    
+    // Figure out how to go back to this view once game is over
+    @State private var path = [Int]()
     
     var questionCount = [5, 10, 15, 20, 1000]
     
     var body: some View {
         NavigationStack {
-            
             ZStack {
                 LinearGradient(colors: [.mint, .green], startPoint: .top, endPoint: .bottom)
                     .ignoresSafeArea()
@@ -58,7 +60,7 @@ struct ContentView: View {
                     VStack {
                         Text("Number of questions: ")
                             .font(.headline)
-                        Picker("Questions", selection: $numberOfQuestions) {
+                        Picker("Questions", selection: $numberOfRounds) {
                             ForEach(questionCount, id: \.self) { count in
                                 if count != 1000 {
                                     Text("\(count)")
@@ -89,7 +91,7 @@ struct ContentView: View {
                         .foregroundStyle(.black)
                         .cornerRadius(5)
                     } else {
-                        NavigationLink(destination: GameView(nameOfUser: nameOfUser, maxNumbers: maxNumbers, numberOfQuestions: numberOfQuestions)) {
+                        NavigationLink(destination: GameView(nameOfUser: nameOfUser, maxNumbers: maxNumbers, numberOfRounds: numberOfRounds)) {
                             Text("Start Playing")
                         }
                         .frame(width: 200, height: 50)
