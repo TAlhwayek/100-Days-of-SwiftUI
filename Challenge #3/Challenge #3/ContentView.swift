@@ -23,8 +23,10 @@ struct ContentView: View {
                 VStack(spacing: 20) {
                     Spacer()
                     
+                    // Name
                     VStack {
                         Text("Enter your name")
+                            .font(.headline)
                         HStack {
                             TextField("Name?", text: $nameOfUser)
                                 .multilineTextAlignment(.center)
@@ -37,8 +39,10 @@ struct ContentView: View {
                     .border(Color.black, width: 2)
                     .cornerRadius(5)
                     
+                    // Difficulty
                     VStack {
                         Text("Max number: ")
+                            .font(.headline)
                         
                         Stepper("\(maxNumbers)", value: $maxNumbers, in: 2...20)
                             .frame(width: 250, height: 40)
@@ -49,9 +53,10 @@ struct ContentView: View {
                     .border(Color.black, width: 2)
                     .cornerRadius(5)
                     
-                    
+                    // Question count
                     VStack {
                         Text("Number of questions: ")
+                            .font(.headline)
                         Picker("Questions", selection: $numberOfQuestions) {
                             ForEach(questionCount, id: \.self) { count in
                                 Text("\(count)")
@@ -69,8 +74,9 @@ struct ContentView: View {
                     Spacer()
                     Spacer()
                     
-                    Button("Start Playing") {
-                        
+                    // Start button
+                    NavigationLink(destination: GameView(nameOfUser: nameOfUser, maxNumbers: maxNumbers, numberOfQuestions: numberOfQuestions)) {
+                        Text("Start Playing")
                     }
                     .frame(width: 200, height: 50)
                     .background(.blue)
