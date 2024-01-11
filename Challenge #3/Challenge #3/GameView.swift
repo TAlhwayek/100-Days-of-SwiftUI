@@ -10,7 +10,7 @@ import SwiftUI
 struct GameButtonStyle: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .frame(width: 150, height: 50)
+            .frame(width: 180, height: 50)
             .foregroundStyle(.black)
             .background(.blue)
             .clipShape(.capsule)
@@ -34,6 +34,10 @@ struct GameView: View {
     @State private var answers = [0, 0, 0, 0]
     
     @State private var score = 0
+    
+    let columns = [
+        GridItem(.adaptive(minimum: 150))
+    ]
     
     init(nameOfUser: String, maxNumbers: Int, numberOfQuestions: Int) {
         self.nameOfUser = nameOfUser
@@ -61,36 +65,48 @@ struct GameView: View {
                 Spacer()
                 Spacer()
                 
-                VStack(spacing: 20) {
-                    HStack(spacing: 30) {
-                        Button() {
-                            newRound()
+//                VStack(spacing: 20) {
+//                    HStack(spacing: 30) {
+//                        Button() {
+//                            newRound()
+//                        } label: {
+//                            Text("\(answers[0])")
+//                                .gameButtonStyle()
+//                        }
+//                        
+//                        Button() {
+//                            newRound()
+//                        } label: {
+//                            Text("\(answers[1])")
+//                                .gameButtonStyle()
+//                        }
+//                    }
+//                    
+//                    HStack(spacing: 30) {
+//                        Button() {
+//                            newRound()
+//                        } label: {
+//                            Text("\(answers[2])")
+//                                .gameButtonStyle()
+//                        }
+//                        
+//                        Button() {
+//                            newRound()
+//                        } label: {
+//                            Text("\(answers[3])")
+//                                .gameButtonStyle()
+//                        }
+//                    }
+//                }
+//                Spacer()
+                
+                LazyVGrid(columns: columns, spacing: 15) {
+                    ForEach(0..<4, id: \.self) { number in
+                        Button {
+                            checkAnswer(number)
                         } label: {
-                            Text("\(answers[0])")
-                                .gameButtonStyle()
-                        }
-                        
-                        Button() {
-                            newRound()
-                        } label: {
-                            Text("\(answers[1])")
-                                .gameButtonStyle()
-                        }
-                    }
-                    
-                    HStack(spacing: 30) {
-                        Button() {
-                            newRound()
-                        } label: {
-                            Text("\(answers[2])")
-                                .gameButtonStyle()
-                        }
-                        
-                        Button() {
-                            newRound()
-                        } label: {
-                            Text("\(answers[3])")
-                                .gameButtonStyle()
+                            Text("\(answers[number])")
+                           .gameButtonStyle()
                         }
                     }
                 }
@@ -133,8 +149,14 @@ struct GameView: View {
         answers.shuffle()
     }
     
-    func checkAnswer() {
+    func checkAnswer(_ number: Int) {
+        if correctAnswer == answers[number] {
+            score += 1
+        } else {
+            
+        }
         
+        newRound()
     }
 }
 
