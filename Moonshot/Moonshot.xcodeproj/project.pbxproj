@@ -19,6 +19,7 @@
 		9B5C2B472B560F8200B8DAFC /* Color-Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5C2B462B560F8200B8DAFC /* Color-Theme.swift */; };
 		9B5C2B492B56114900B8DAFC /* MissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5C2B482B56114900B8DAFC /* MissionView.swift */; };
 		9B5C2B4B2B56196600B8DAFC /* AstronautView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5C2B4A2B56196600B8DAFC /* AstronautView.swift */; };
+		9B5C2B4D2B561E3000B8DAFC /* DividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5C2B4C2B561E3000B8DAFC /* DividerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		9B5C2B462B560F8200B8DAFC /* Color-Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color-Theme.swift"; sourceTree = "<group>"; };
 		9B5C2B482B56114900B8DAFC /* MissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionView.swift; sourceTree = "<group>"; };
 		9B5C2B4A2B56196600B8DAFC /* AstronautView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautView.swift; sourceTree = "<group>"; };
+		9B5C2B4C2B561E3000B8DAFC /* DividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				9B5C2B302B50597100B8DAFC /* ContentView.swift */,
 				9B5C2B4A2B56196600B8DAFC /* AstronautView.swift */,
 				9B5C2B482B56114900B8DAFC /* MissionView.swift */,
+				9B5C2B4C2B561E3000B8DAFC /* DividerView.swift */,
 				9B5C2B462B560F8200B8DAFC /* Color-Theme.swift */,
 				9B5C2B3C2B5608BB00B8DAFC /* astronauts.json */,
 				9B5C2B402B56090700B8DAFC /* Astronaut.swift */,
@@ -164,6 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B5C2B492B56114900B8DAFC /* MissionView.swift in Sources */,
+				9B5C2B4D2B561E3000B8DAFC /* DividerView.swift in Sources */,
 				9B5C2B412B56090700B8DAFC /* Astronaut.swift in Sources */,
 				9B5C2B4B2B56196600B8DAFC /* AstronautView.swift in Sources */,
 				9B5C2B472B560F8200B8DAFC /* Color-Theme.swift in Sources */,
