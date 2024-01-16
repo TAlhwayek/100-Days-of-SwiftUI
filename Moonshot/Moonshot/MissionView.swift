@@ -26,10 +26,11 @@ struct MissionView: View {
                         width * 0.6
                     }
                 
+                Text("Launch Date: \(mission.formattedLaunchDate)")
+                    .font(.subheadline.bold())
+                    .padding(.vertical)
+                
                 VStack(alignment: .leading) {
-                    Text("Launch Date: \(mission.formattedLaunchDate)")
-                    .font(.title.bold())
-                    
                     Rectangle()
                         .frame(height: 2)
                         .foregroundStyle(.lightBackground)
@@ -37,7 +38,7 @@ struct MissionView: View {
                     Text("Mission Highlights")
                         .font(.title.bold())
                         .padding(.bottom, 5)
-                        .padding(.vertical)
+
                     
                     Text(mission.description)
                     
