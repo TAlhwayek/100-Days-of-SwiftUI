@@ -56,6 +56,11 @@ struct ContentView: View {
             .navigationTitle("Moonshot")
             .background(.darkBackground)
             .preferredColorScheme(.dark)
+            .toolbar {
+                Button("Change Layout") {
+                    
+                }
+            }
         }
     }
 }

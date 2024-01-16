@@ -37,7 +37,6 @@ struct MissionView: View {
                         .font(.title.bold())
                         .padding(.bottom, 5)
 
-                    
                     Text(mission.description)
                     
                     DividerView()
