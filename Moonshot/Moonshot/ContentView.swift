@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var layoutIsGrid = true
+    
     let astronauts: [String: Astronaut] = Bundle.main.decode("astronauts.json")
     let missions: [Mission] = Bundle.main.decode("missions.json")
     
@@ -58,7 +60,7 @@ struct ContentView: View {
             .preferredColorScheme(.dark)
             .toolbar {
                 Button("Change Layout") {
-                    
+                    layoutIsGrid.toggle()
                 }
             }
         }
