@@ -25,9 +25,24 @@ struct ListLayout: View {
                             .frame(width: 100, height: 100)
                             .padding()
                     }
+                    
+                    VStack {
+                        Text(mission.displayName)
+                            .font(.headline)
+                            .foregroundStyle(.white)
+                        
+                        Text(mission.formattedLaunchDate)
+                            .font(.caption)
+                            .foregroundStyle(.gray.opacity(0.6))
+                    }
+                    .padding(.vertical)
+                    .frame(maxWidth: .infinity)
+                    
                 }
             }
+            .listRowBackground(Color.darkBackground)
         }
+//        .listStyle(.plain)
     }
 }
 
@@ -35,6 +50,6 @@ struct ListLayout: View {
     let missions: [Mission] = Bundle.main.decode("missions.json")
     let astronauts: [String: Astronaut] = Bundle.main.decode("astronauts.json")
     
-    return MissionView(mission: missions[0], astronauts: astronauts)
+    return ListLayout(astronauts: astronauts, missions: missions)
         .preferredColorScheme(.dark)
 }

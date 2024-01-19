@@ -60,6 +60,6 @@ struct GridLayout: View {
     let missions: [Mission] = Bundle.main.decode("missions.json")
     let astronauts: [String: Astronaut] = Bundle.main.decode("astronauts.json")
     
-    return MissionView(mission: missions[0], astronauts: astronauts)
+    return GridLayout(astronauts: astronauts, missions: missions)
         .preferredColorScheme(.dark)
 }
