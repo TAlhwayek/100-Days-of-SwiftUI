@@ -8,11 +8,33 @@
 import SwiftUI
 
 struct ListLayout: View {
+    
+    var astronauts: [String: Astronaut]
+    var missions: [Mission]
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List {
+            ForEach(missions) { mission in
+                NavigationLink {
+                    MissionView(mission: mission, astronauts: astronauts)
+                } label: {
+                    VStack {
+                        Image(mission.image)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 100, height: 100)
+                            .padding()
+                    }
+                }
+            }
+        }
     }
 }
 
 #Preview {
-    ListLayout()
+    let missions: [Mission] = Bundle.main.decode("missions.json")
+    let astronauts: [String: Astronaut] = Bundle.main.decode("astronauts.json")
+    
+    return MissionView(mission: missions[0], astronauts: astronauts)
+        .preferredColorScheme(.dark)
 }

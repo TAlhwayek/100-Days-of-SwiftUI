@@ -19,10 +19,9 @@ struct ContentView: View {
                 if layoutIsGrid {
                     GridLayout(astronauts: astronauts, missions: missions)
                 } else {
-                    // ListLayout
+                     ListLayout(astronauts: astronauts, missions: missions)
                 }
             }
-            
             .navigationTitle("Moonshot")
             .background(.darkBackground)
             .preferredColorScheme(.dark)
