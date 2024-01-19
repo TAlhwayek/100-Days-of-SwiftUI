@@ -22,8 +22,8 @@ struct ListLayout: View {
                         Image(mission.image)
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 100, height: 100)
-                            .padding()
+                            .frame(width: 75, height: 75)
+                            .padding(.leading, 25)
                     }
                     
                     VStack {
@@ -35,14 +35,20 @@ struct ListLayout: View {
                             .font(.caption)
                             .foregroundStyle(.gray.opacity(0.6))
                     }
-                    .padding(.vertical)
                     .frame(maxWidth: .infinity)
                     
                 }
+                
+//                DividerView()
+                Rectangle()
+                    .frame(height: 0.5)
+                    .foregroundStyle(.lightBackground)
+                
             }
             .listRowBackground(Color.darkBackground)
+            .listRowSeparator(.hidden)
         }
-//        .listStyle(.plain)
+        .listStyle(.plain)
     }
 }
 
