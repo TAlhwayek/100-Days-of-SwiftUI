@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+
+
 struct ContentView: View {
     
     // Colors
@@ -57,6 +59,7 @@ struct ContentView: View {
                                 
                                 Text(habit.priority)
                                     .font(.caption)
+                                    .priorityStyle(for: habit)
                             }
                             
                             HStack {
