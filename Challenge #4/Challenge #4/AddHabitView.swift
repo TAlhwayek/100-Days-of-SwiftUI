@@ -11,9 +11,6 @@ struct AddHabitView: View {
     @Environment(\.dismiss) var dismiss
     @State private var title = ""
     @State private var description = ""
-    @State private var priority = "Low"
-    
-    let priorities = ["Low", "Medium", "High"]
     
     var habits: Habits
     
@@ -22,11 +19,6 @@ struct AddHabitView: View {
             List {
                 TextField("Title", text: $title)
                 TextField("Description", text: $description)
-                Picker("Priority", selection: $priority) {
-                    ForEach(priorities, id: \.self) {
-                        Text($0)
-                    }
-                }
             }
             .navigationTitle("Add a New Habit")
             .navigationBarTitleDisplayMode(.inline)
@@ -34,7 +26,7 @@ struct AddHabitView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Add") {
-                        let newHabit = Habit(title: title, description: description, priority: priority)
+                        let newHabit = Habit(title: title, description: description)
                         habits.habitsArray.append(newHabit)
                         dismiss()
                     }

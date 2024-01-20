@@ -21,6 +21,8 @@ import SwiftUI
 //              That means I have to remove priority from habits - DONE
 //              And maybe some other fixes
 // Maybe sort todolist by priority
+// Maybe either strikethrough to-dos, or put them in another section that shows completed today
+//              Then reset daily
 
 
 struct HabitListView: View {

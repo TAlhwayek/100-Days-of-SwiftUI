@@ -11,6 +11,5 @@ struct Habit: Identifiable, Codable {
     var id = UUID()
     var title: String
     var description: String
-    var priority: String
     var timesCompleted: Int = 0
 }
