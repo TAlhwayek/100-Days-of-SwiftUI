@@ -14,7 +14,7 @@ struct SettingsView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                Toggle("Show motivational quotes", isOn: $showQuotes)
+                Toggle("Show motivational quotes under habits", isOn: $showQuotes)
                     .padding()
                     .onChange(of: showQuotes) {
                         UserDefaults.standard.set(showQuotes, forKey: "ShowQuotes")
