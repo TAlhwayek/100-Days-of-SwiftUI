@@ -20,7 +20,7 @@ import SwiftUI
 //              And maybe some other fixes
 
 
-struct ContentView: View {
+struct HabitList: View {
     @State private var habits = Habits()
     @State private var showSettingsSheet = false
     var turnOnQuotes = true
@@ -86,18 +86,7 @@ struct ContentView: View {
                     }
                 }
             }
-            // I should experiment with this
-            //            TabView {
-            //                    AddHabitView(habits: habits)
-            //                        .tabItem {
-            //                            Label("Add", systemImage: "plus")
-            //                        }
-            //
-            //                    SettingsView()
-            //                        .tabItem {
-            //                            Label("Settings", systemImage: "gearshape")
-            //                        }
-            //            }
+           
         }
         
     }
@@ -108,5 +97,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    HabitList()
 }

@@ -1,0 +1,29 @@
+//
+//  TabView.swift
+//  Challenge #4
+//
+//  Created by Tony Alhwayek on 1/19/24.
+//
+
+import SwiftUI
+
+struct Tabs: View {
+    var body: some View {
+        TabView {
+            HabitList()
+                .tabItem {
+                    Label("Habits", systemImage: "clock.arrow.2.circlepath")
+                }
+            
+            // THIS IS JUST A PLACEHOLDER VIEW
+            SettingsView()
+                .tabItem {
+                    Label("To-Do List", systemImage: "list.number")
+                }
+        }
+    }
+}
+
+#Preview {
+    Tabs()
+}
