@@ -19,8 +19,9 @@ struct ContentView: View {
     
     // Actual variables
     @State private var habits = Habits()
-    
     var turnOnQuotes = true
+    
+    @State private var showSettingsSheet = false
     
     var body: some View {
         NavigationStack {
@@ -65,8 +66,21 @@ struct ContentView: View {
                 }
             }
             .toolbar {
-                NavigationLink(destination: AddHabitView(habits: habits)) {
-                    Image(systemName: "plus")
+                ToolbarItem(placement: .topBarTrailing) {
+                    NavigationLink(destination: AddHabitView(habits: habits)) {
+                        Image(systemName: "plus")
+                    }
+                }
+                
+                ToolbarItem(placement: .topBarLeading) {
+                    Button(action: {
+                        showSettingsSheet.toggle()
+                    }) {
+                        Image(systemName: "gearshape")
+                    }
+                    .sheet(isPresented: $showSettingsSheet) {
+                        SettingsView()
+                    }
                 }
             }
         }
