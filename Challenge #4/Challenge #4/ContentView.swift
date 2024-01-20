@@ -48,7 +48,7 @@ struct ContentView: View {
             VStack {
                 List {
                     ForEach(habits.habitsArray) { habit in
-                        VStack {
+                        VStack(alignment: .leading) {
                             Text(habit.title)
                                 .bold()
                             Text(habit.description)
@@ -57,6 +57,7 @@ struct ContentView: View {
                         
                     
                     }
+                    .onDelete(perform: removeItems)
                 }
                 .listStyle(.plain)
                 .navigationTitle("Habit Tracker")
@@ -80,8 +81,10 @@ struct ContentView: View {
                 }
             }
         }
- 
-        
+    }
+    
+    func removeItems(at offset: IndexSet) {
+        habits.habitsArray.remove(atOffsets: offset)
     }
 }
 

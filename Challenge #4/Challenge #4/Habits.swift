@@ -9,5 +9,24 @@ import Foundation
 
 @Observable
 class Habits: Codable {
-    var habitsArray = [Habit]()
+    var habitsArray = [Habit]() {
+        didSet {
+            if let encoded = try? JSONEncoder().encode(habitsArray) {
+                UserDefaults.standard.set(encoded, forKey: "Habits")
+            }
+        }
+    }
+    
+    init() {
+        if let savedHabits = UserDefaults.standard.data(forKey: "Habits") {
+            if let decodedItems = try? JSONDecoder().decode([Habit].self, from: savedHabits) {
+                habitsArray = decodedItems
+                return
+            }
+        }
+        
+        habitsArray = []
+    }
+    
+    
 }
