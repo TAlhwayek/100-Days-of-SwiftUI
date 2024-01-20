@@ -26,7 +26,6 @@ struct HabitListView: View {
     @AppStorage("ShowQuotes") private var showQuotes = true {
         didSet {
             UserDefaults.standard.set(showQuotes, forKey: "ShowQuotes")
-            // Additional actions you want to perform when the value changes
         }
     }
     
