@@ -15,6 +15,7 @@
 		9BFB57A52B5B8EA00067DCBD /* Habits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFB57A42B5B8EA00067DCBD /* Habits.swift */; };
 		9BFB57A72B5B97C80067DCBD /* AddHabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFB57A62B5B97C80067DCBD /* AddHabitView.swift */; };
 		9BFB57A92B5B9FD70067DCBD /* PriorityStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFB57A82B5B9FD70067DCBD /* PriorityStyle.swift */; };
+		9BFB57AB2B5BA12C0067DCBD /* MotivationalQuotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFB57AA2B5BA12C0067DCBD /* MotivationalQuotes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		9BFB57A42B5B8EA00067DCBD /* Habits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habits.swift; sourceTree = "<group>"; };
 		9BFB57A62B5B97C80067DCBD /* AddHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitView.swift; sourceTree = "<group>"; };
 		9BFB57A82B5B9FD70067DCBD /* PriorityStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityStyle.swift; sourceTree = "<group>"; };
+		9BFB57AA2B5BA12C0067DCBD /* MotivationalQuotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotivationalQuotes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 			children = (
 				9BFB57942B5B8D600067DCBD /* Challenge__4App.swift */,
 				9BFB57962B5B8D600067DCBD /* ContentView.swift */,
+				9BFB57AA2B5BA12C0067DCBD /* MotivationalQuotes.swift */,
 				9BFB57A82B5B9FD70067DCBD /* PriorityStyle.swift */,
 				9BFB57A62B5B97C80067DCBD /* AddHabitView.swift */,
 				9BFB57A42B5B8EA00067DCBD /* Habits.swift */,
@@ -155,6 +158,7 @@
 				9BFB57952B5B8D600067DCBD /* Challenge__4App.swift in Sources */,
 				9BFB57A72B5B97C80067DCBD /* AddHabitView.swift in Sources */,
 				9BFB57A92B5B9FD70067DCBD /* PriorityStyle.swift in Sources */,
+				9BFB57AB2B5BA12C0067DCBD /* MotivationalQuotes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
