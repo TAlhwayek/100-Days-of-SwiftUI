@@ -7,21 +7,23 @@
 
 import SwiftUI
 
+// TODO:
+// Save settings and load (UserDefaults)
+// Set up times completed
+// Check challenge webpage
+// Check theme? Maybe allow user to force dark/light mode or use system
+//              Maybe extra themes?
+//
+// DetailView when clicked
+// Maybe tab bar that switches between habits and to-do list?
+//              That means I have to remove priority from habits
+//              And maybe some other fixes
 
 
 struct ContentView: View {
-    
-    // Colors
-    // should remove if keeping it simple
-    //    let backgroundColor = Color(red: 3.0 / 255.0 , green: 6.0 / 255.0, blue: 55.0 / 255.0)
-    //    let listRowColor = Color(red: 114.0 / 255.0 , green: 4.0 / 255.0, blue: 85.0 / 255.0)
-    //    let listRowColor2 = Color(red: 110.0 / 255.0 , green: 157.0 / 255.0, blue: 17.0 / 255.0)
-    
-    // Actual variables
     @State private var habits = Habits()
-    var turnOnQuotes = true
-    
     @State private var showSettingsSheet = false
+    var turnOnQuotes = true
     
     var body: some View {
         NavigationStack {
@@ -66,12 +68,13 @@ struct ContentView: View {
                 }
             }
             .toolbar {
+                // New habit button
                 ToolbarItem(placement: .topBarTrailing) {
                     NavigationLink(destination: AddHabitView(habits: habits)) {
                         Image(systemName: "plus")
                     }
                 }
-                
+                // Settings button
                 ToolbarItem(placement: .topBarLeading) {
                     Button(action: {
                         showSettingsSheet.toggle()
@@ -83,7 +86,20 @@ struct ContentView: View {
                     }
                 }
             }
+            // I should experiment with this
+            //            TabView {
+            //                    AddHabitView(habits: habits)
+            //                        .tabItem {
+            //                            Label("Add", systemImage: "plus")
+            //                        }
+            //
+            //                    SettingsView()
+            //                        .tabItem {
+            //                            Label("Settings", systemImage: "gearshape")
+            //                        }
+            //            }
         }
+        
     }
     
     func removeItems(at offset: IndexSet) {

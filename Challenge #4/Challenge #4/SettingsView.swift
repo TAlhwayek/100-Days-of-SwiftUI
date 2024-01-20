@@ -12,10 +12,12 @@ struct SettingsView: View {
     @State private var showQuotes = true
     
     var body: some View {
-        Toggle("Show motivational quotes", isOn: $showQuotes)
-            .padding()
-        
-        Spacer()
+        VStack {
+            Toggle("Show motivational quotes", isOn: $showQuotes)
+                .padding()
+            
+            Spacer()
+        }
     }
 }
 
