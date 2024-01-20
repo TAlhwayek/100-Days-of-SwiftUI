@@ -36,12 +36,6 @@ struct HabitListView: View {
                             HStack {
                                 Text(habit.title)
                                     .font(.title2.bold())
-                                
-                                Spacer()
-                                
-                                Text(habit.priority)
-                                    .font(.caption)
-//                                    .priorityStyle(for: habit)
                             }
                             
                             HStack {

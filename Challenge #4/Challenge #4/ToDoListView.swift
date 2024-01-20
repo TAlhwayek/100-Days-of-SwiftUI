@@ -21,16 +21,18 @@ struct ToDoListView: View {
                                 Text(toDo.title)
                                     .font(.title2.bold())
                                 
-                                Spacer()
-                                
-                                Text(toDo.priority)
-                                    .font(.caption)
-                                    .priorityStyle(for: toDo)
+                               
                             }
                             
                             HStack {
                                 Text(toDo.description)
                                     .font(.caption)
+                                
+                                Spacer()
+                                
+                                Text(toDo.priority)
+                                    .font(.caption)
+                                    .priorityStyle(for: toDo)
                             }
                         }
                     }
