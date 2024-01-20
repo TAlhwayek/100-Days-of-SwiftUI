@@ -34,7 +34,7 @@ struct AddHabitView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Add") {
-                        let newHabit = Habit(title: title, description: description)
+                        let newHabit = Habit(title: title, description: description, priority: priority)
                         habits.habitsArray.append(newHabit)
                         dismiss()
                     }

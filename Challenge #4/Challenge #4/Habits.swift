@@ -27,6 +27,4 @@ class Habits: Codable {
         
         habitsArray = []
     }
-    
-    
 }

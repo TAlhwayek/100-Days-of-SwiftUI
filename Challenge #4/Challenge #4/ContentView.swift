@@ -11,9 +11,9 @@ struct ContentView: View {
     
     // Colors
     // should remove if keeping it simple
-//    let backgroundColor = Color(red: 3.0 / 255.0 , green: 6.0 / 255.0, blue: 55.0 / 255.0)
-//    let listRowColor = Color(red: 114.0 / 255.0 , green: 4.0 / 255.0, blue: 85.0 / 255.0)
-//    let listRowColor2 = Color(red: 110.0 / 255.0 , green: 157.0 / 255.0, blue: 17.0 / 255.0)
+    //    let backgroundColor = Color(red: 3.0 / 255.0 , green: 6.0 / 255.0, blue: 55.0 / 255.0)
+    //    let listRowColor = Color(red: 114.0 / 255.0 , green: 4.0 / 255.0, blue: 85.0 / 255.0)
+    //    let listRowColor2 = Color(red: 110.0 / 255.0 , green: 157.0 / 255.0, blue: 17.0 / 255.0)
     
     let motivationalQuotes = [
         "Believe you can and you're halfway there.",
@@ -49,23 +49,34 @@ struct ContentView: View {
                 List {
                     ForEach(habits.habitsArray) { habit in
                         VStack(alignment: .leading) {
-                            Text(habit.title)
-                                .bold()
-                            Text(habit.description)
-                            Text("Times completed: \(habit.timesCompleted)")
+                            HStack {
+                                Text(habit.title)
+                                    .font(.title2.bold())
+                                
+                                Spacer()
+                                
+                                Text(habit.priority)
+                                    .font(.caption)
+                            }
+                            
+                            HStack {
+                                Text(habit.description)
+                                    .font(.caption)
+                                
+                                Spacer()
+                                
+                                Text("Times completed: \(habit.timesCompleted)")
+                                    .font(.caption)
+                            }
                         }
                         
-                    
+                        
                     }
                     .onDelete(perform: removeItems)
                 }
                 .listStyle(.plain)
                 .navigationTitle("Habit Tracker")
                 .navigationBarTitleDisplayMode(.inline)
-                .onAppear {
-                    let item = Habit(title: "Ziggy", description: "Stardust")
-                    habits.habitsArray.append(item)
-                }
                 
                 if turnOnQuotes {
                     Text(motivationalQuotes[19])
