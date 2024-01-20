@@ -11,13 +11,14 @@ import SwiftUI
 // Save settings and load (UserDefaults) - DONE
 // Set up times completed
 //              Maybe add done button on detailview
+//              Also allow edits in detailview?
 //              Make it rain confetti once done
 // Check challenge webpage
 // Check theme? Maybe allow user to force dark/light mode or use system
 //              Maybe extra themes?
 // DetailView when clicked
 // Maybe tab bar that switches between habits and to-do list? - DONE
-//              That means I have to remove priority from habits
+//              That means I have to remove priority from habits - DONE
 //              And maybe some other fixes
 // Maybe sort todolist by priority
 

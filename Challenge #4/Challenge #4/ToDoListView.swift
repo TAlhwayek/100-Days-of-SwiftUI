@@ -20,8 +20,6 @@ struct ToDoListView: View {
                             HStack {
                                 Text(toDo.title)
                                     .font(.title2.bold())
-                                
-                               
                             }
                             
                             HStack {
@@ -43,7 +41,7 @@ struct ToDoListView: View {
                 .navigationBarTitleDisplayMode(.inline)
             }
             .toolbar {
-                // New habit button
+                // New To-do item button
                 ToolbarItem(placement: .topBarTrailing) {
                     NavigationLink(destination: AddToDoView(toDos: toDos)) {
                         Image(systemName: "plus")
