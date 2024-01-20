@@ -8,21 +8,24 @@
 import SwiftUI
 
 struct SettingsView: View {
-    
+    @Environment(\.dismiss) var dismiss
     @State private var showQuotes = true
     
     var body: some View {
-        VStack {
-            Toggle("Show motivational quotes", isOn: $showQuotes)
-                .padding()
-            
-            Spacer()
-        }
-        .toolbar {
-            Button("") {
+        NavigationStack {
+            VStack {
+                Toggle("Show motivational quotes", isOn: $showQuotes)
+                    .padding()
                 
+                Spacer()
             }
+            //            .toolbar {
+            //                Button("Close", systemImage: "xmark") {
+            //                    dismiss()
+            //                }
+            //            }
         }
+        
     }
 }
 
