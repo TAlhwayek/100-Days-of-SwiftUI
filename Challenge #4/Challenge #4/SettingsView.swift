@@ -9,21 +9,19 @@ import SwiftUI
 
 struct SettingsView: View {
     @Environment(\.dismiss) var dismiss
-    @State private var showQuotes = true
+    @State private var showQuotes: Bool = UserDefaults.standard.bool(forKey: "ShowQuotes")
     
     var body: some View {
         NavigationStack {
             VStack {
                 Toggle("Show motivational quotes", isOn: $showQuotes)
                     .padding()
+                    .onChange(of: showQuotes) {
+                        UserDefaults.standard.set(showQuotes, forKey: "ShowQuotes")
+                    }
                 
                 Spacer()
             }
-            //            .toolbar {
-            //                Button("Close", systemImage: "xmark") {
-            //                    dismiss()
-            //                }
-            //            }
         }
         
     }

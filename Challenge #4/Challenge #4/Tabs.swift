@@ -10,13 +10,13 @@ import SwiftUI
 struct Tabs: View {
     var body: some View {
         TabView {
-            HabitList()
+            HabitListView()
                 .tabItem {
                     Label("Habits", systemImage: "clock.arrow.2.circlepath")
                 }
             
             // THIS IS JUST A PLACEHOLDER VIEW
-            SettingsView()
+            ToDoListView()
                 .tabItem {
                     Label("To-Do List", systemImage: "list.number")
                 }

@@ -20,10 +20,15 @@ import SwiftUI
 //              And maybe some other fixes
 
 
-struct HabitList: View {
+struct HabitListView: View {
     @State private var habits = Habits()
     @State private var showSettingsSheet = false
-    var turnOnQuotes = true
+    @AppStorage("ShowQuotes") private var showQuotes = true {
+        didSet {
+            UserDefaults.standard.set(showQuotes, forKey: "ShowQuotes")
+            // Additional actions you want to perform when the value changes
+        }
+    }
     
     var body: some View {
         NavigationStack {
@@ -59,12 +64,13 @@ struct HabitList: View {
                 .navigationTitle("Habit Tracker")
                 .navigationBarTitleDisplayMode(.inline)
                 
-                if turnOnQuotes {
+                if showQuotes {
                     Text(motivationalQuotes[19])
                         .frame(height: 80, alignment: .center)
                         .multilineTextAlignment(.center)
                         .lineLimit(3)
                         .padding(.horizontal)
+                        .bold()
                 }
             }
             .toolbar {
@@ -99,5 +105,5 @@ struct HabitList: View {
 }
 
 #Preview {
-    HabitList()
+    HabitListView()
 }
