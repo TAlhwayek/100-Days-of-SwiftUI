@@ -41,7 +41,7 @@ struct HabitListView: View {
                                 
                                 Text(habit.priority)
                                     .font(.caption)
-                                    .priorityStyle(for: habit)
+//                                    .priorityStyle(for: habit)
                             }
                             
                             HStack {

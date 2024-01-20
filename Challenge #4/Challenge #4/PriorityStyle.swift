@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct PriorityStyle: ViewModifier {
-    let habit: Habit
+    let toDo: ToDo
     
     func body(content: Content) -> some View {
-        switch habit.priority {
+        switch toDo.priority {
         case "Low":
             content
                 .foregroundStyle(.green)
@@ -27,7 +27,7 @@ struct PriorityStyle: ViewModifier {
 }
 
 extension View {
-    func priorityStyle(for habit: Habit) -> some View {
-        modifier(PriorityStyle(habit: habit))
+    func priorityStyle(for toDo: ToDo) -> some View {
+        modifier(PriorityStyle(toDo: toDo))
     }
 }

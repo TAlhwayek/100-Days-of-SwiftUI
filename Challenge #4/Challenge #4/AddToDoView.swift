@@ -28,7 +28,7 @@ struct AddToDoView: View {
                     }
                 }
             }
-            .navigationTitle("Add a New Habit")
+            .navigationTitle("Add a New To-do Item")
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden()
             .toolbar {
