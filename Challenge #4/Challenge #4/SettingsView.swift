@@ -18,6 +18,11 @@ struct SettingsView: View {
             
             Spacer()
         }
+        .toolbar {
+            Button("") {
+                
+            }
+        }
     }
 }
 

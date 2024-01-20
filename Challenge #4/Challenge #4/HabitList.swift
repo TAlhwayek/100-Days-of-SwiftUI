@@ -83,6 +83,8 @@ struct HabitList: View {
                     }
                     .sheet(isPresented: $showSettingsSheet) {
                         SettingsView()
+                            .presentationDetents([.medium, .large])
+                            .presentationDragIndicator(.automatic)
                     }
                 }
             }
