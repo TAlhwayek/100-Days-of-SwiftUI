@@ -8,26 +8,24 @@
 import SwiftUI
 
 // TODO:
-// Save settings and load (UserDefaults)
+// Save settings and load (UserDefaults) - DONE
 // Set up times completed
+//              Maybe add done button on detailview
+//              Make it rain confetti once done
 // Check challenge webpage
 // Check theme? Maybe allow user to force dark/light mode or use system
 //              Maybe extra themes?
-//
 // DetailView when clicked
-// Maybe tab bar that switches between habits and to-do list?
+// Maybe tab bar that switches between habits and to-do list? - DONE
 //              That means I have to remove priority from habits
 //              And maybe some other fixes
+// Maybe sort todolist by priority
 
 
 struct HabitListView: View {
     @State private var habits = Habits()
     @State private var showSettingsSheet = false
-    @AppStorage("ShowQuotes") private var showQuotes = true {
-        didSet {
-            UserDefaults.standard.set(showQuotes, forKey: "ShowQuotes")
-        }
-    }
+    @AppStorage("ShowQuotes") private var showQuotes: Bool = true
     
     var body: some View {
         NavigationStack {
@@ -89,7 +87,7 @@ struct HabitListView: View {
                     .sheet(isPresented: $showSettingsSheet) {
                         SettingsView()
                             .presentationDetents([.medium, .large])
-                            .presentationDragIndicator(.automatic)
+                            .presentationDragIndicator(.visible)
                     }
                 }
             }
