@@ -8,7 +8,7 @@
 import Foundation
 
 @Observable
-class ToDos: Codable {
+class ToDos {
     var toDosArray = [ToDo]() {
         didSet {
             if let encoded = try? JSONEncoder().encode(toDosArray) {

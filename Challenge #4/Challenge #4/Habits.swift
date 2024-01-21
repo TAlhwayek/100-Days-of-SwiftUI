@@ -8,7 +8,7 @@
 import Foundation
 
 @Observable
-class Habits: Codable {
+class Habits {
     var habitsArray = [Habit]() {
         didSet {
             if let encoded = try? JSONEncoder().encode(habitsArray) {
