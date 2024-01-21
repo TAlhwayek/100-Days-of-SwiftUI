@@ -20,6 +20,7 @@ struct SettingsView: View {
                         UserDefaults.standard.set(showQuotes, forKey: "ShowQuotes")
                     }
                 Spacer()
+                Spacer()
                 
                 
                 Button {
@@ -28,14 +29,12 @@ struct SettingsView: View {
                     Text("Sign in")
                         .frame(maxWidth: .infinity)
                         .padding()
+                        .background(.blue)
+                        .cornerRadius(50)
                         .foregroundStyle(Color(uiColor: .label))
-                        .overlay {
-                            RoundedRectangle(cornerRadius: 50)
-                                .stroke(Color(uiColor: .label), lineWidth: 1)
-                        }
                 }
                 .padding(.horizontal, 75)
-                
+                .padding(.vertical, 10)
                 Button {
                     // Handle sign up logic
                 } label: {
@@ -45,7 +44,7 @@ struct SettingsView: View {
                         .foregroundStyle(Color(uiColor: .label))
                         .overlay {
                             RoundedRectangle(cornerRadius: 50)
-                                .stroke((Color.blue), lineWidth: 1)
+                                .stroke((.blue), lineWidth: 1)
                         }
                 }
                 .padding(.horizontal, 75)
