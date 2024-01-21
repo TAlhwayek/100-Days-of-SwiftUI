@@ -19,12 +19,11 @@ struct SettingsView: View {
                     .onChange(of: showQuotes) {
                         UserDefaults.standard.set(showQuotes, forKey: "ShowQuotes")
                     }
-                
                 Spacer()
             }
         }
-        
     }
+    
 }
 
 #Preview {

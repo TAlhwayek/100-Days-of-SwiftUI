@@ -88,9 +88,7 @@ struct HabitListView: View {
                     }
                 }
             }
-           
         }
-        
     }
     
     func removeItems(at offset: IndexSet) {
