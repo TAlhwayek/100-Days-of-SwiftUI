@@ -16,23 +16,7 @@ struct ToDoListView: View {
             VStack {
                 List {
                     ForEach(toDos.toDosArray) { toDo in
-                        VStack(alignment: .leading) {
-                            HStack {
-                                Text(toDo.title)
-                                    .font(.title2.bold())
-                            }
-                            
-                            HStack {
-                                Text(toDo.description)
-                                    .font(.caption)
-                                
-                                Spacer()
-                                
-                                Text(toDo.priority)
-                                    .font(.caption)
-                                    .priorityStyle(for: toDo)
-                            }
-                        }
+                        ListRowView(toDo: toDo)
                     }
                     .onDelete(perform: removeItems)
                 }
