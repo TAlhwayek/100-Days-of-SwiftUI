@@ -61,9 +61,8 @@ struct ToDoListView: View {
                     }
                 }
             }
-            
+            .navigationTitle("To-do List")
         }
-        
     }
     
     func removeItems(at offset: IndexSet) {
