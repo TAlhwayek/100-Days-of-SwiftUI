@@ -76,6 +76,9 @@ struct HabitListView: View {
                 }
                 // Settings button
                 ToolbarItem(placement: .topBarLeading) {
+                    //                        NavigationLink(destination: SettingsView()) {
+                    //                            Image(systemName: "gearshape")
+                    //                        }
                     Button(action: {
                         showSettingsSheet.toggle()
                     }) {

@@ -20,9 +20,24 @@ struct Challenge__4App: App {
     // This is also needed for registering
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
+    // Handling themes
+    @AppStorage("selectedTheme") var selectedTheme: String? // Default to system theme
+    
     var body: some Scene {
         WindowGroup {
             Tabs()
+                .preferredColorScheme(getColorScheme())
+        }
+    }
+    
+    func getColorScheme() -> ColorScheme? {
+        switch selectedTheme {
+        case "light":
+            return .light
+        case "dark":
+            return .dark
+        default:
+            return nil // SYSTEM THEME
         }
     }
 }

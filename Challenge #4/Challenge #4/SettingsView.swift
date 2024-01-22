@@ -10,6 +10,7 @@ import SwiftUI
 struct SettingsView: View {
     @Environment(\.dismiss) var dismiss
     @State private var showQuotes: Bool = UserDefaults.standard.bool(forKey: "ShowQuotes")
+    @AppStorage("selectedTheme") var selectedTheme: String = ""
     
     var body: some View {
         NavigationStack {
@@ -19,9 +20,22 @@ struct SettingsView: View {
                     .onChange(of: showQuotes) {
                         UserDefaults.standard.set(showQuotes, forKey: "ShowQuotes")
                     }
-                Spacer()
-                Spacer()
                 
+                HStack {
+                    Text("Select Theme")
+                    
+                    Spacer()
+                    
+                    Picker("Select Theme", selection: $selectedTheme) {
+                        Text("Light").tag("light")
+                        Text("Dark").tag("dark")
+                        Text("System").tag("system")
+                    }
+                }
+                .padding(.horizontal)
+                
+                Spacer()
+                Spacer()
                 
                 Button {
                     // Handle sign in logic

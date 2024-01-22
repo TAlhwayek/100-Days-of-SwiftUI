@@ -40,8 +40,8 @@ struct ToDoListView: View {
                     }
                     .sheet(isPresented: $showSettingsSheet) {
                         SettingsView()
-                            .presentationDetents([.medium, .large])
-                            .presentationDragIndicator(.visible)
+//                            .presentationDetents([.medium, .large])
+//                            .presentationDragIndicator(.visible)
                     }
                 }
             }
