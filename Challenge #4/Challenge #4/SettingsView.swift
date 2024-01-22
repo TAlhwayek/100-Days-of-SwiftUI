@@ -67,6 +67,10 @@ struct SettingsView: View {
             }
             
         }
+        // Temp fix for sheet not dynamically updating when theme is changed
+        .onChange(of: selectedTheme) {
+            dismiss()
+        }
     }
 }
 
