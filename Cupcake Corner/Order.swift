@@ -36,10 +36,29 @@ class Order: Codable {
     var extraFrosting = false
     var addSprinkles = false
     
-    var name = ""
-    var streetAddress = ""
-    var city = ""
-    var zip = ""
+    var name = UserDefaults.standard.string(forKey: "name") ?? "" {
+        didSet {
+            UserDefaults.standard.setValue(name, forKey: "name")
+        }
+    }
+    
+    var streetAddress = UserDefaults.standard.string(forKey: "streetAddress") ?? "" {
+        didSet {
+            UserDefaults.standard.setValue(streetAddress, forKey: "streetAddress")
+        }
+    }
+    
+    var city = UserDefaults.standard.string(forKey: "city") ?? "" {
+        didSet {
+            UserDefaults.standard.setValue(city, forKey: "city")
+        }
+    }
+    
+    var zip = UserDefaults.standard.string(forKey: "zip") ?? "" {
+        didSet {
+            UserDefaults.standard.setValue(zip, forKey: "zip")
+        }
+    }
     
     var hasValidAddress: Bool {
         if name.trimmingCharacters(in: .whitespaces).isEmpty || streetAddress.trimmingCharacters(in: .whitespaces).isEmpty || city.trimmingCharacters(in: .whitespaces).isEmpty || zip.trimmingCharacters(in: .whitespaces).isEmpty {
