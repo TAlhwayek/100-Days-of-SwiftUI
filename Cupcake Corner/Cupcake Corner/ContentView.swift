@@ -7,28 +7,24 @@
 
 import SwiftUI
 
-enum HttpErrors: Error {
-    case badURL, badResponse, invalidData
+@Observable
+class User: Codable {
+    enum CodingKeys: String, CodingKey {
+        case _name = "name"
+    }
+    
+    var name = "Timmy"
 }
 
 struct ContentView: View {
-    @State private var username = ""
-    @State private var email = ""
-    
     var body: some View {
-        Form {
-            Section {
-                TextField("Username", text: $username)
-                TextField("Email", text: $email)
-            }
-            
-            Section {
-                Button("Create account") {
-                    print("Creating account")
-                }
-            }
-            .disabled(username.isEmpty)
-        }
+        Button("Encode Timmy", action: encodeTimmy)
+    }
+    
+    func encodeTimmy() {
+        let data = try! JSONEncoder().encode(User())
+        let str = String(decoding: data, as: UTF8.self)
+        print(str)
     }
 }
     
