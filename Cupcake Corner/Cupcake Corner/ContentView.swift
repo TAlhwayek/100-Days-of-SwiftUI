@@ -33,6 +33,11 @@ struct ContentView: View {
                     }
                 }
                 
+                Section {
+                    NavigationLink("Delivery Details") {
+                        AddressView(order: order)
+                    }
+                }
                 
             }
         }
