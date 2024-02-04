@@ -12,7 +12,7 @@ struct ContentView: View {
 
     var body: some View {
         NavigationStack {
-            TextEditor(text: $notes)
+            TextField("Enter your text", text: $notes, axis: .vertical)
                 .navigationTitle("Notes")
                 .padding()
         }
