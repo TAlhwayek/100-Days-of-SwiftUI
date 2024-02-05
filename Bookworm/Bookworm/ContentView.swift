@@ -33,17 +33,20 @@ struct ContentView: View {
                         }
                     }
                 }
-                .navigationTitle("Bookworm")
-                .toolbar {
-                    ToolbarItem(placement: .topBarTrailing) {
-                        Button("Add Book", systemImage: "plus") {
-                            showingAddScreen.toggle()
-                        }
+            }
+            .navigationTitle("Bookworm")
+            .navigationDestination(for: Book.self) { book in
+                DetailView(book: book)
+            }
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button("Add Book", systemImage: "plus") {
+                        showingAddScreen.toggle()
                     }
                 }
-                .sheet(isPresented: $showingAddScreen) {
-                    AddBookView()
-                }
+            }
+            .sheet(isPresented: $showingAddScreen) {
+                AddBookView()
             }
         }
     }
