@@ -29,19 +29,16 @@ struct RatingView: View {
                 Button {
                     rating = number
                 } label: {
-                    image(for: number)
+                    onImage
                         .foregroundStyle(number > rating ? offColor : onColor)
                 }
             }
         }
+        .buttonStyle(.plain)
     }
     
     func image(for number: Int) -> Image {
-        if number > rating {
-            offImage ?? onImage
-        } else {
-            onImage
-        }
+        return onImage
     }
 }
 

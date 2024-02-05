@@ -13,7 +13,7 @@ struct AddBookView: View {
     
     @State private var title = ""
     @State private var author = ""
-    @State private var rating = 3
+    @State private var rating = 4
     @State private var genre = ""
     @State private var review = ""
     
@@ -35,12 +35,8 @@ struct AddBookView: View {
                 
                 Section("Write a review") {
                     TextEditor(text: $review)
+                    RatingView(rating: $rating)
                     
-                    Picker("Rating", selection: $rating) {
-                        ForEach(1..<6) {
-                            Text(String($0))
-                        }
-                    }
                 }
                 
                 Section {
