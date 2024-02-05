@@ -13,8 +13,7 @@ struct RatingView: View {
     var label = ""
     var maximumRating = 5
     
-    var offImage: Image?
-    var onImage = Image(systemName: "star.fill")
+    var starImage = Image(systemName: "star.fill")
     
     var offColor = Color.gray
     var onColor = Color.yellow
@@ -29,7 +28,7 @@ struct RatingView: View {
                 Button {
                     rating = number
                 } label: {
-                    onImage
+                    starImage
                         .foregroundStyle(number > rating ? offColor : onColor)
                 }
             }
@@ -38,7 +37,7 @@ struct RatingView: View {
     }
     
     func image(for number: Int) -> Image {
-        return onImage
+        return starImage
     }
 }
 
