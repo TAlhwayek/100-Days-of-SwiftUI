@@ -43,6 +43,8 @@ struct DetailView: View {
                 .font(.largeTitle)
             
             
+            
+            
         }
         .navigationTitle(book.title)
         .navigationBarTitleDisplayMode(.inline)
@@ -58,6 +60,15 @@ struct DetailView: View {
                 showingDeleteAlert = true
             }
         }
+        .overlay(
+            VStack {
+                Text("Date Added").italic()
+                Text(book.date, format: .dateTime.day().month().year()).italic()
+            }
+            .padding(.vertical, 20)
+            .foregroundStyle(.secondary),
+            alignment: .bottom // This is the corrected placement for the alignment parameter
+        )
     }
     
     func deleteBook() {
@@ -70,7 +81,7 @@ struct DetailView: View {
     do {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Book.self, configurations: config)
-        let example = Book(title: "Test Book", author: "Test Author", genre: "Fantasy", review: "This was a great book; I really enjoyed it.", rating: 4)
+        let example = Book(title: "Test Book", author: "Test Author", genre: "Fantasy", review: "This was a great book; I really enjoyed it.", rating: 4, date: Date.now)
         
         return DetailView(book: example)
             .modelContainer(container)

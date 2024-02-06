@@ -14,6 +14,7 @@ struct EmojiRatingView: View {
         switch rating {
         case 0:
             Text("🚫")
+            
         case 1:
             Text("🤮")
             

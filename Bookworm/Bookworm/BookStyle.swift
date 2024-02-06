@@ -15,6 +15,7 @@ struct BookStyle: ViewModifier {
         case 1:
             content
                 .foregroundStyle(.red)
+            
         case 2:
             content
                 .foregroundStyle(.orange)
