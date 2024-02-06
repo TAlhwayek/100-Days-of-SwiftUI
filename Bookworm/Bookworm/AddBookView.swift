@@ -41,10 +41,15 @@ struct AddBookView: View {
                 
                 Section {
                     Button("Save") {
+                        if review.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                            review = "No review was written."
+                        }
+                        
                         let newBook = Book(title: title, author: author, genre: genre, review: review, rating: rating)
                         modelContext.insert(newBook)
                         dismiss()
                     }
+                    .disabled( title.trimmingCharacters(in: .whitespaces).isEmpty || author.trimmingCharacters(in: .whitespaces).isEmpty)
                 }
             }
             .navigationTitle("Add Book")
