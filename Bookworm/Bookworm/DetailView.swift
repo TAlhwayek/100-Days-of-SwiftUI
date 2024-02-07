@@ -41,10 +41,6 @@ struct DetailView: View {
             
             RatingView(rating: .constant(book.rating))
                 .font(.largeTitle)
-            
-            
-            
-            
         }
         .navigationTitle(book.title)
         .navigationBarTitleDisplayMode(.inline)
@@ -65,8 +61,8 @@ struct DetailView: View {
                 Text("Date Added").italic()
                 Text(book.date, format: .dateTime.day().month().year()).italic()
             }
-            .padding(.vertical, 20)
-            .foregroundStyle(.secondary),
+                .padding(.vertical, 20)
+                .foregroundStyle(.secondary),
             alignment: .bottom // This is the corrected placement for the alignment parameter
         )
     }
