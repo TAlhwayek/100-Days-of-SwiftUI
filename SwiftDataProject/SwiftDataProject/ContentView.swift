@@ -10,25 +10,32 @@ import SwiftUI
 
 struct ContentView: View {
     @Environment(\.modelContext) var modelContext
-    @Query(sort: \User.name) var users: [User]
-    @State private var path = [User]()
+    // Only show names that contain a capital R
+    @Query(filter: #Predicate<User> { user in
+        user.name.contains("R")
+    }, sort: \User.name) var users: [User]
+        
     
     var body: some View {
-        NavigationStack(path: $path) {
+        NavigationStack{
             List(users) { user in
-                NavigationLink(value: user) {
                     Text(user.name)
-                }
             }
             .navigationTitle("Users")
-            .navigationDestination(for: User.self) { user in
-                EditUserView(user: user)
-            }
             .toolbar {
-                Button("Add User", systemImage: "plus") {
-                    let user = User(name: "", city: "", joinDate: .now)
-                    modelContext.insert(user)
-                    path = [user]
+                Button("Add Samples", systemImage: "plus") {
+                    try? modelContext.delete(model: User.self)
+                    
+                    
+                    let first = User(name: "Red Sheeran", city: "London", joinDate: .now.addingTimeInterval(86400 * -10))
+                    let second = User(name: "Rosa Hanks", city: "Frankfurt", joinDate: .now.addingTimeInterval(86400 * -5))
+                    let third = User(name: "Tandy Englerish", city: "Johnny English", joinDate: .now.addingTimeInterval(86400 * 5))
+                    let fourth = User(name: "Frankz Kafka", city: "Moscow", joinDate: .now.addingTimeInterval(86400 * 10))
+                    
+                    modelContext.insert(first)
+                    modelContext.insert(second)
+                    modelContext.insert(third)
+                    modelContext.insert(fourth)
                 }
             }
         }
