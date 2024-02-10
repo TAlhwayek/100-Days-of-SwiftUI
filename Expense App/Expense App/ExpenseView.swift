@@ -38,8 +38,14 @@ struct ExpenseView: View {
         }
     }
     
-   init(sortOrder: [SortDescriptor<ExpenseItem>]) {
-        _expenses = Query(sort: sortOrder)
+    init(type: String, sortOrder: [SortDescriptor<ExpenseItem>]) {
+       _expenses = Query(filter: #Predicate<ExpenseItem> { expense in
+           if type == "All" {
+               return true
+           } else {
+               return expense.type == type
+           }
+       }, sort: sortOrder)
     }
     
     func removeExpense(_ expense: ExpenseItem) {
@@ -48,5 +54,5 @@ struct ExpenseView: View {
 }
 
 #Preview {
-    ExpenseView(sortOrder: [SortDescriptor(\ExpenseItem.amount)])
+    ExpenseView(type: "All", sortOrder: [SortDescriptor(\ExpenseItem.amount)])
 }

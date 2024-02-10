@@ -17,6 +17,7 @@ struct ContentView: View {
         SortDescriptor(\ExpenseItem.amount)
     ]
     
+    @State private var filterSelection = "All"
     @State private var showingAddExpense = false
     @State private var businessTotal = 0.0
     @State private var personalTotal = 0.0
@@ -24,12 +25,23 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             List {
-                ExpenseView(sortOrder: sortOrder)
+                ExpenseView(type: filterSelection, sortOrder: sortOrder)
             }
             .navigationTitle("iExpense")
             .toolbar {
                 NavigationLink(destination: AddView()) {
                     Image(systemName: "plus")
+                }
+                
+                Menu("Filter", systemImage: "line.3.horizontal.decrease.circle") {
+                    Picker("Filter", selection: $filterSelection) {
+                        Text("All Expenses")
+                            .tag("All")
+                        Text("Personal Only")
+                            .tag("Personal")
+                        Text("Business Only")
+                            .tag("Business")
+                    }
                 }
                 
                 Menu("Sort", systemImage: "arrow.up.arrow.down") {
