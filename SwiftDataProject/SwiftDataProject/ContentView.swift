@@ -12,14 +12,22 @@ struct ContentView: View {
     @Environment(\.modelContext) var modelContext
     // Only show names that contain a capital R
     @Query(filter: #Predicate<User> { user in
-        user.name.localizedStandardContains("R")
+        if user.name.localizedStandardContains("R") {
+            if user.city == "London" {
+                return true
+            } else {
+                return false
+            }
+        } else {
+            return false
+        }
     }, sort: \User.name) var users: [User]
-        
+    
     
     var body: some View {
         NavigationStack{
             List(users) { user in
-                    Text(user.name)
+                Text(user.name)
             }
             .navigationTitle("Users")
             .toolbar {
@@ -27,10 +35,10 @@ struct ContentView: View {
                     try? modelContext.delete(model: User.self)
                     
                     
-                    let first = User(name: "Red Sheeran", city: "London", joinDate: .now.addingTimeInterval(86400 * -10))
-                    let second = User(name: "Rosa Hanks", city: "Frankfurt", joinDate: .now.addingTimeInterval(86400 * -5))
-                    let third = User(name: "Tandy Englerish", city: "Johnny English", joinDate: .now.addingTimeInterval(86400 * 5))
-                    let fourth = User(name: "Frankz Kafka", city: "Moscow", joinDate: .now.addingTimeInterval(86400 * 10))
+                    let first  = User(name: "Red Sheeran",     city: "London",         joinDate: .now.addingTimeInterval(86400 * -10))
+                    let second = User(name: "Rosa Hanks",      city: "Frankfurt",      joinDate: .now.addingTimeInterval(86400 * -5))
+                    let third  = User(name: "Tandy Englerish", city: "Johnny English", joinDate: .now.addingTimeInterval(86400 * 5))
+                    let fourth = User(name: "Frankz Kafka",    city: "Moscow",         joinDate: .now.addingTimeInterval(86400 * 10))
                     
                     modelContext.insert(first)
                     modelContext.insert(second)
