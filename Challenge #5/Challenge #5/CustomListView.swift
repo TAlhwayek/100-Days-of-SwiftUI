@@ -5,6 +5,9 @@
 //  Created by Tony Alhwayek on 2/11/24.
 //
 
+// Credits to trailingclosure.com
+// https://trailingclosure.com/product-card-in-swiftui/
+
 import SwiftUI
 
 struct CustomListView: View {
@@ -12,26 +15,25 @@ struct CustomListView: View {
     
     var body: some View {
         HStack() {
-                Text(user.name)
-                    .font(.system(size: 16, weight: .bold, design: .default))
-                    .foregroundStyle(.white)
-                
+            Text(user.name)
+                .font(.system(size: 16, weight: .bold, design: .default))
+                .foregroundStyle(.white)
+            
             Text("\(user.age)")
                 .font(.system(size: 12, weight: .bold, design: .default))
                 .foregroundStyle(.gray)
             
-                Spacer()
-                
-                if user.isActive {
-                    Circle()
-                        .fill(.green)
-                        .frame(width: 20, height: 20)
-                } else {
-                    Circle()
-                        .fill(.red)
-                        .frame(width: 20, height: 20)
-                }
+            Spacer()
             
+            if user.isActive {
+                Circle()
+                    .fill(.green)
+                    .frame(width: 20, height: 20)
+            } else {
+                Circle()
+                    .fill(.red)
+                    .frame(width: 20, height: 20)
+            }
             
         }
         .padding([.trailing, .vertical], 15)
@@ -39,7 +41,6 @@ struct CustomListView: View {
         .padding(.horizontal, 20)
         .background(Color(red: 32/255, green: 36/255, blue: 38/255))
         .cornerRadius(10)
-        
     }
 }
 
