@@ -15,30 +15,11 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             List(users, id: \.id) { user in
-                HStack {
-                    NavigationLink(destination: DetailView(user: user)) {
-                        Text(user.name)
-                            .font(.headline)
-                            .frame(width: 200, alignment: .leading)
-                            
-
-                        Spacer()
-                        
-                        if user.isActive {
-                            Circle()
-                                .fill(.green)
-                                .frame(width: 20, height: 20)
-                        } else {
-                            Circle()
-                                .fill(.red)
-                                .frame(width: 20, height: 20)
-                        }
-                    }
-                   
+                NavigationLink(destination: DetailView(user: user)) {
+                    CustomListView(user: user)
                 }
-                .padding()
-                
             }
+            .listStyle(.plain)
             .navigationTitle("Friends")
             .task {
                 if users.isEmpty {
