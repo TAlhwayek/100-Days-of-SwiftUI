@@ -16,24 +16,36 @@ struct DetailView: View {
                 Section("Info") {
                     HStack {
                         Text("Age")
+                            .bold()
                         Spacer()
                         Text("\(user.age)")
                     }
                     
                     HStack {
                         Text("Email")
+                            .bold()
                         Spacer()
                         Text("\(user.email)")
                     }
                     
                     HStack {
+                        Text("Date Joined")
+                            .bold()
+                        Spacer()
+                        Text("\(user.fixedDate)")
+                    }
+                    
+                    HStack {
                         Text("Address")
+                            .bold()
                         Spacer()
                         Text("\(user.address)")
+                            .multilineTextAlignment(.trailing)
                     }
                     
                     HStack {
                         Text("Company")
+                            .bold()
                         Spacer()
                         Text("\(user.company)")
                     }
@@ -42,6 +54,7 @@ struct DetailView: View {
                 Section ("Online Status") {
                     HStack {
                         Text(user.isActive ? "Online" : "Offline")
+                            .bold()
                             .foregroundStyle(user.isActive ? .green : .red)
                     }
                 }

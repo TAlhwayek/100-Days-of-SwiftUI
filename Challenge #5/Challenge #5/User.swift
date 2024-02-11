@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct User: Codable, Identifiable {    
+struct User: Codable, Identifiable {
     let id: UUID
     let isActive: Bool
     let name: String
@@ -32,5 +32,14 @@ struct User: Codable, Identifiable {
         self.registered = registered
         self.tags = tags
         self.friends = friends
+    }
+    
+    var fixedDate: String {
+        let isoFormatter = ISO8601DateFormatter()
+        let date = isoFormatter.date(from: registered) ?? .now
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMMM d, yyyy"
+        return dateFormatter.string(from: date)
     }
 }
