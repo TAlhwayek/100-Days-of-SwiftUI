@@ -15,11 +15,12 @@ struct ContentView: View {
             List(users, id: \.id) { user in
                 NavigationLink(destination: DetailView(user: user)) {
                     CustomListView(user: user)
+                    
                 }
+                .listRowSeparator(.hidden)
             }
             .listStyle(.plain)
             .navigationTitle("Friends")
-            .preferredColorScheme(.dark)
             .task {
                 if users.isEmpty {
                     await loadData()
