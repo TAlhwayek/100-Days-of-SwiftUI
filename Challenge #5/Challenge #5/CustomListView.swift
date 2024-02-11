@@ -37,8 +37,8 @@ struct CustomListView: View {
             
         }
         .padding([.trailing, .vertical], 15)
-        .frame(maxWidth: .infinity, alignment: .center)
         .padding(.horizontal, 20)
+        .frame(maxWidth: .infinity, alignment: .center)
         .background(Color(red: 32/255, green: 36/255, blue: 38/255))
         .cornerRadius(10)
     }

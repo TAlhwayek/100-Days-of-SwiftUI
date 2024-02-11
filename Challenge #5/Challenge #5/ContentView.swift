@@ -15,8 +15,8 @@ struct ContentView: View {
             List(users, id: \.id) { user in
                 NavigationLink(destination: DetailView(user: user)) {
                     CustomListView(user: user)
-                    
                 }
+                .padding(-4)
                 .listRowSeparator(.hidden)
             }
             .listStyle(.plain)
