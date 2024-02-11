@@ -21,6 +21,7 @@ struct ContentView: View {
             }
             .listStyle(.plain)
             .navigationTitle("Friends")
+            .preferredColorScheme(.dark)
             .task {
                 if users.isEmpty {
                     await loadData()
