@@ -15,12 +15,23 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             List(users, id: \.id) { user in
-                VStack(alignment: .leading) {
+                HStack {
                     Text(user.name)
                         .font(.headline)
                     
-                    Text(user.address)
+                    Spacer()
+                    
+                    if user.isActive {
+                        Circle()
+                            .fill(.green)
+                            .frame(width: 20, height: 20)
+                    } else {
+                        Circle()
+                            .fill(.red)
+                            .frame(width: 20, height: 20)
+                    }
                 }
+                .padding()
                 
             }
             .navigationTitle("Friends")
@@ -28,8 +39,8 @@ struct ContentView: View {
                 await loadData()
             }
         }
-           
-       }
+        
+    }
     
     func loadData() async {
         isLoading = true
@@ -44,8 +55,7 @@ struct ContentView: View {
             let decodedResponse = try JSONDecoder().decode([User].self, from: data)
             users = decodedResponse
         } catch {
-            loadingError = error
-            print("Error during data loading:", error)
+            print("Error loading data: \(error.localizedDescription)")
         }
         isLoading = false
     }
