@@ -16,27 +16,34 @@ struct ContentView: View {
         NavigationStack {
             List(users, id: \.id) { user in
                 HStack {
-                    Text(user.name)
-                        .font(.headline)
-                    
-                    Spacer()
-                    
-                    if user.isActive {
-                        Circle()
-                            .fill(.green)
-                            .frame(width: 20, height: 20)
-                    } else {
-                        Circle()
-                            .fill(.red)
-                            .frame(width: 20, height: 20)
+                    NavigationLink(destination: DetailView(user: user)) {
+                        Text(user.name)
+                            .font(.headline)
+                            .frame(width: 200, alignment: .leading)
+                            
+
+                        Spacer()
+                        
+                        if user.isActive {
+                            Circle()
+                                .fill(.green)
+                                .frame(width: 20, height: 20)
+                        } else {
+                            Circle()
+                                .fill(.red)
+                                .frame(width: 20, height: 20)
+                        }
                     }
+                   
                 }
                 .padding()
                 
             }
             .navigationTitle("Friends")
             .task {
-                await loadData()
+                if users.isEmpty {
+                    await loadData()
+                }
             }
         }
         
