@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var isLoading = true
     @State private var users = [User]()
-    @State private var loadingError: Error?
     
     var body: some View {
         NavigationStack {
@@ -21,6 +19,7 @@ struct ContentView: View {
             }
             .listStyle(.plain)
             .navigationTitle("Friends")
+            .preferredColorScheme(.dark)
             .task {
                 if users.isEmpty {
                     await loadData()
@@ -31,8 +30,6 @@ struct ContentView: View {
     }
     
     func loadData() async {
-        isLoading = true
-        loadingError = nil
         guard let url = URL(string: "https://www.hackingwithswift.com/samples/friendface.json") else {
             print("Invalid URL")
             return
@@ -45,7 +42,6 @@ struct ContentView: View {
         } catch {
             print("Error loading data: \(error.localizedDescription)")
         }
-        isLoading = false
     }
 }
 
